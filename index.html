@@ -37,6 +37,7 @@
   <meta name="geo.position" content="54.7269;17.5284">
   <meta name="ICBM" content="54.7269, 17.5284">
 
+  <link rel="preload" href="fotki/BUD. 1 I BASEN OD STRONY WJAZDU.png" as="image" fetchpriority="high">
   <link rel="preload" href="fotki/SCENERIA NOCNA 1.png" as="image" fetchpriority="high">
   <link rel="preload" href="fotki/3 BUDYNKI I BASEN_.png" as="image" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -156,15 +157,20 @@
     .nav-logo img { height: 44px; width: auto; display: block; }
     .nav-cta { background: var(--gold); color: #fff; border: none; padding: 10px 20px; border-radius: 40px; font-family: 'DM Sans', sans-serif; font-size: .82rem; font-weight: 500; cursor: pointer; text-decoration: none; animation: ctaFloat 2.6s ease-in-out infinite 1s; }
     .nav-cta:hover { background: var(--gold-light); animation: none; }
+    .nav-cta-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.55); padding: 9px 18px; border-radius: 40px; font-family: 'DM Sans', sans-serif; font-size: .82rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background .2s, border-color .2s; }
+    .nav-cta-ghost:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.8); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
 
     /* HERO */
     .hero { position: relative; height: 100svh; min-height: 580px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
-    .hero-bg-1, .hero-bg-2 { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
-    .hero-bg-1 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/SCENERIA\ NOCNA\ 1.png'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade1 22s ease-in-out infinite; }
-    .hero-bg-2 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/3\ BUDYNKI\ I\ BASEN_.png'); animation: heroBreath 22s ease-in-out infinite 11s, heroCrossfade2 22s ease-in-out infinite; }
+    .hero-bg-1, .hero-bg-2, .hero-bg-3 { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
+    .hero-bg-1 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/BUD.\ 1\ I\ BASEN\ OD\ STRONY\ WJAZDU.png'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade1 33s ease-in-out infinite; }
+    .hero-bg-2 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/SCENERIA\ NOCNA\ 1.png'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade2 33s ease-in-out infinite; }
+    .hero-bg-3 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/3\ BUDYNKI\ I\ BASEN_.png'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade3 33s ease-in-out infinite; }
     @keyframes heroBreath { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.055); } }
-    @keyframes heroCrossfade1 { 0%, 40% { opacity: 1; } 50% { opacity: 0; } 90% { opacity: 0; } 100% { opacity: 1; } }
-    @keyframes heroCrossfade2 { 0%, 40% { opacity: 0; } 50% { opacity: 1; } 90% { opacity: 1; } 100% { opacity: 0; } }
+    @keyframes heroCrossfade1 { 0% { opacity: 1; } 25% { opacity: 1; } 33% { opacity: 0; } 92% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes heroCrossfade2 { 0% { opacity: 0; } 28% { opacity: 0; } 36% { opacity: 1; } 58% { opacity: 1; } 66% { opacity: 0; } 100% { opacity: 0; } }
+    @keyframes heroCrossfade3 { 0% { opacity: 0; } 62% { opacity: 0; } 70% { opacity: 1; } 92% { opacity: 1; } 100% { opacity: 0; } }
     .hero-content { position: relative; z-index: 2; padding: 0 24px 48px; animation: heroFadeUp 1s ease .3s both; }
     @keyframes heroFadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
     .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(192,154,82,.9); color: #fff; font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 40px; margin-bottom: 16px; }
@@ -399,6 +405,7 @@
     .contact-icon { font-size: 1.3rem; width: 44px; height: 44px; background: rgba(192,154,82,.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-label { font-size: .72rem; color: var(--gold-light); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 3px; }
     .contact-val { font-size: .95rem; color: #fff; }
+    .contact-name { font-size: .8rem; color: rgba(255,255,255,.6); margin-top: .15rem; }
     .krs-info { margin-top: 48px; padding: 18px; background: rgba(0,0,0,.2); border-radius: 14px; font-size: .7rem; color: rgba(255,255,255,.3); line-height: 1.7; text-align: left; }
 
     /* ATRAKCJE */
@@ -423,6 +430,32 @@
     .section-divider { display: flex; justify-content: center; margin-top: 40px; pointer-events: none; }
     .section-divider span { display: block; width: 1.5px; height: 44px; background: linear-gradient(to bottom, var(--green-light), transparent); animation: lineDrop 2.5s ease-in-out infinite; }
     .lokalizacja .section-divider span { background: linear-gradient(to bottom, rgba(255,255,255,.45), transparent); }
+
+    /* FORMULARZ KONTAKTOWY */
+    .formularz { background: var(--sand); }
+    .formularz .section-label { justify-content: center; }
+    .formularz h2.section-title { text-align: center; }
+    .formularz p.section-body { text-align: center; margin: 0 auto 32px; }
+    .form-wrap { background: #fff; border-radius: 20px; padding: 32px 24px; box-shadow: 0 4px 32px rgba(26,82,118,.08); }
+    .form-grid { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: .75rem; font-weight: 500; color: var(--text); text-transform: uppercase; letter-spacing: .07em; }
+    .form-group input,
+    .form-group textarea { width: 100%; padding: 13px 16px; border: 1.5px solid #d6eaf8; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: .93rem; color: var(--text); background: #f7fbff; outline: none; transition: border-color .2s, box-shadow .2s; box-sizing: border-box; }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--green-mid); box-shadow: 0 0 0 3px rgba(46,134,193,.12); background: #fff; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-rodo { display: flex; align-items: flex-start; gap: 10px; font-size: .76rem; color: var(--text); line-height: 1.5; cursor: pointer; }
+    .form-rodo input[type="checkbox"] { margin-top: 2px; width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--green-deep); cursor: pointer; }
+    .form-btn { width: 100%; padding: 15px; background: var(--green-deep); color: #fff; border: none; border-radius: 48px; font-family: 'DM Sans', sans-serif; font-size: .95rem; font-weight: 500; cursor: pointer; letter-spacing: .03em; transition: background .2s, transform .15s, box-shadow .2s; }
+    .form-btn:hover { background: var(--green-mid); box-shadow: 0 4px 18px rgba(26,82,118,.25); transform: translateY(-1px); }
+    .form-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+    .form-msg { display: none; margin-top: 16px; padding: 14px 18px; border-radius: 12px; font-size: .88rem; text-align: center; }
+    .form-msg.success { display: block; background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+    .form-msg.error { display: block; background: #fdedec; color: #c0392b; border: 1px solid #f1948a; }
+    @media (min-width: 640px) {
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
 
     /* FOOTER */
     footer { background: #0d2137; padding: 28px 24px; text-align: center; }
@@ -509,13 +542,17 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <a class="nav-logo" href="#">
     <img src="wpAranzacjeOkolice/cropped-logo_osada_white.png" alt="Łebska Osada" loading="eager">
   </a>
-  <a class="nav-cta" href="#listaapartamentow">Sprawdź ofertę</a>
+  <div class="nav-actions">
+    <a class="nav-cta-ghost" href="#formularz">Zapytaj</a>
+    <a class="nav-cta" href="#listaapartamentow">Sprawdź ofertę</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero-top" class="hero">
   <div class="hero-bg-1"></div>
   <div class="hero-bg-2"></div>
+  <div class="hero-bg-3"></div>
   <div class="hero-content">
     <div class="hero-badge">Łeba, Polska</div>
     <h1>Gotowe mieszkania<br>na <em>nadmorskim</em><br>osiedlu</h1>
@@ -832,6 +869,43 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <div class="section-divider"><span></span></div>
 </section>
 
+<!-- FORMULARZ KONTAKTOWY -->
+<section class="formularz" id="formularz">
+  <div class="section-label reveal">Formularz kontaktowy</div>
+  <h2 class="section-title reveal reveal-delay-1">Zapytaj o<br><em>apartament</em></h2>
+  <p class="section-body reveal reveal-delay-2">Wypełnij formularz — odpiszemy lub oddzwonimy w ciągu jednego dnia roboczego.</p>
+  <div class="form-wrap reveal reveal-delay-3">
+    <form id="contactForm" novalidate>
+      <div class="form-grid">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Imię i nazwisko *</label>
+            <input type="text" id="cf-name" name="name" placeholder="Jan Kowalski" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-phone">Telefon *</label>
+            <input type="tel" id="cf-phone" name="phone" placeholder="+48 600 000 000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Adres e-mail *</label>
+          <input type="email" id="cf-email" name="email" placeholder="jan@przyklad.pl" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-msg">Pytania / wiadomość</label>
+          <textarea id="cf-msg" name="message" placeholder="Np. Interesuje mnie apartament na parterze, proszę o informacje o dostępności i finansowaniu..."></textarea>
+        </div>
+        <label class="form-rodo">
+          <input type="checkbox" id="cf-rodo" name="rodo" required>
+          Wyrażam zgodę na przetwarzanie moich danych osobowych przez Łebska sp. z o.o. z siedzibą w Gdyni w celu udzielenia odpowiedzi na moje zapytanie, zgodnie z art. 6 ust. 1 lit. a RODO. Zgoda jest dobrowolna i może być cofnięta w każdym czasie. *
+        </label>
+        <button type="submit" class="form-btn" id="cfSubmit">Wyślij wiadomość</button>
+        <div class="form-msg" id="cfMsg"></div>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- KONTAKT -->
 <section class="kontakt" id="kontakt">
   <div class="section-label reveal">Napisz do nas</div>
@@ -839,8 +913,8 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <p class="section-body reveal reveal-delay-2">Nasz zespół odpowie na każde pytanie — o lokale, finansowanie, terminy odbioru i wszystko inne.</p>
   <div class="contact-cards reveal">
     <a class="contact-card" href="/cdn-cgi/l/email-protection#d0a3a0a2aab5b4b1aa90bcb5b2a3bbb1bfa3b1b4b1fea0bc"><div class="contact-icon">✉️</div><div><div class="contact-label">E-mail sprzedaż</div><div class="contact-val"><span class="__cf_email__" data-cfemail="dba8aba9a1bebfbaa19bb7beb9a8b0bab4a8babfbaf5abb7">sprzedaz@lebskaosada.pl</span></div></div></a>
-    <a class="contact-card" href="tel:+48792503213"><div class="contact-icon">📞</div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 792 503 213</div></div></a>
-    <a class="contact-card" href="tel:+48500299775"><div class="contact-icon">📱</div><div><div class="contact-label">Tel. firmowy</div><div class="contact-val">+48 500 299 775</div></div></a>
+    <a class="contact-card" href="tel:+48792503213"><div class="contact-icon">📞</div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 792 503 213</div><div class="contact-name">Patrycja Leonowicz</div></div></a>
+    <a class="contact-card" href="tel:+48500299775"><div class="contact-icon">📱</div><div><div class="contact-label">Tel. firmowy</div><div class="contact-val">+48 500 299 775</div><div class="contact-name">Jarosław Szreder</div></div></a>
     <div class="contact-card"><div class="contact-icon">📍</div><div><div class="contact-label">Lokalizacja</div><div class="contact-val">Łeba, woj. pomorskie</div></div></div>
   </div>
   <div class="krs-info reveal">
@@ -1034,6 +1108,55 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   "numberOfRooms": "2-4",
   "petsAllowed": false
 }
+</script>
+
+<script>
+/* FORMULARZ — Formspree */
+(function() {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('cfSubmit');
+    var msg = document.getElementById('cfMsg');
+    var rodo = document.getElementById('cf-rodo');
+    if (!rodo.checked) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Proszę zaznaczyć zgodę na przetwarzanie danych osobowych.';
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Wysyłanie…';
+    msg.className = 'form-msg';
+    var data = {
+      name: document.getElementById('cf-name').value,
+      phone: document.getElementById('cf-phone').value,
+      email: document.getElementById('cf-email').value,
+      message: document.getElementById('cf-msg').value
+    };
+    fetch('https://formspree.io/f/xbdpzngb', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r) { return r.json().then(function(d) { return { ok: r.ok, d: d }; }); })
+    .then(function(res) {
+      if (res.ok) {
+        msg.className = 'form-msg success';
+        msg.textContent = 'Dziękujemy! Wiadomość dotarła do nas — odpiszemy lub oddzwonimy wkrótce.';
+        form.reset();
+        if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+      } else {
+        throw new Error(res.d && res.d.error ? res.d.error : 'błąd');
+      }
+    }).catch(function() {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Coś poszło nie tak. Proszę spróbować ponownie lub skontaktować się telefonicznie.';
+    }).finally(function() {
+      btn.disabled = false;
+      btn.textContent = 'Wyślij wiadomość';
+    });
+  });
+})();
 </script>
 </body>
 </html>
