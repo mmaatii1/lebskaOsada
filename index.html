@@ -1205,6 +1205,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         msg.textContent = 'Dziękujemy! Wiadomość dotarła do nas — odpiszemy lub oddzwonimy wkrótce.';
         form.reset();
         if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+        if (typeof gtag !== 'undefined') { gtag('event', 'conversion', {'send_to': 'AW-18063980473/X05KCKC2mZccELnvyaVD'}); }
       } else {
         throw new Error(res.d && res.d.error ? res.d.error : 'błąd');
       }
