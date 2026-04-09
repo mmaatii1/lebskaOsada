@@ -603,10 +603,6 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q5LF43C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <div class="top-banner">
   <span class="top-banner-tag">🎉 Promocja</span>
@@ -619,7 +615,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav id="mainNav">
   <a class="nav-logo" href="#">
-    <img src="wpAranzacjeOkolice/cropped-logo_osada_white.webp" alt="Łebska Osada" loading="eager">
+    <img src="wpAranzacjeOkolice/cropped-logo_osada_white.webp" alt="Łebska Osada" loading="eager" width="66" height="44">
   </a>
   <div class="nav-actions">
     <a class="nav-cta-ghost" href="#formularz">Zapytaj</a>
@@ -789,28 +785,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="atrakcje-photo-track reveal" id="atrakcjeTrack">
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_374325862-min-scaled-1.webp" alt="Plaża w Łebie">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_374325862-min-scaled-1.webp" alt="Plaża w Łebie" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Plaża w Łebie</div>
       <div class="atrakcja-desc">Jedna z najszerszych i najczystszych plaż Bałtyku — złoty piasek, czysta woda, deptaki.</div>
       <div class="atrakcja-dist">🚲 15 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_462941342-min-scaled-1.webp" alt="Jezioro Łebsko">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_462941342-min-scaled-1.webp" alt="Jezioro Łebsko" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Jezioro Łebsko</div>
       <div class="atrakcja-desc">Drugie co do wielkości jezioro w Polsce. Idealne do kajaków, windsurfingu i spokojnych spacerów brzegiem. Jest to również raj dla wędkarzy 🎣.</div>
       <div class="atrakcja-dist">🚲 6 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/wydmy-ruchome-leba-scaled.webp" alt="Ruchome Wydmy">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/wydmy-ruchome-leba-scaled.webp" alt="Ruchome Wydmy" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Ruchome Wydmy</div>
       <div class="atrakcja-desc">Unikat na skalę Europy — wydmy przemieszczające się po kilka metrów rocznie w Słowińskim Parku Narodowym.</div>
       <div class="atrakcja-dist">🚲 ~30 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_114686871-min-scaled-1.webp" alt="Słowiński Park Narodowy">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_114686871-min-scaled-1.webp" alt="Słowiński Park Narodowy" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Słowiński Park Narodowy</div>
       <div class="atrakcja-desc">Rezerwat biosfery UNESCO. Bagna, lasy, wydmy i przybrzeżne jeziora — dzika przyroda tuż za progiem.</div>
       <div class="atrakcja-dist">📍 Bezpośrednie sąsiedztwo</div>
@@ -1008,7 +1004,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <footer>
-  <div class="footer-logo"><img src="wpAranzacjeOkolice/cropped-logo_osada_white.webp" alt="Łebska Osada"></div>
+  <div class="footer-logo"><img src="wpAranzacjeOkolice/cropped-logo_osada_white.webp" alt="Łebska Osada" width="72" height="48" loading="lazy"></div>
   <p>© 2026 Łebska Osada · lebskaosada.pl<br>Łeba, województwo pomorskie, Polska</p>
 </footer>
 
@@ -1051,11 +1047,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const nav = document.getElementById('mainNav');
   const cta = document.getElementById('stickyCta');
   let heroH = document.querySelector('.hero').offsetHeight;
-  window.addEventListener('resize', () => { heroH = document.querySelector('.hero').offsetHeight; });
+  let bodyScrollH = document.body.scrollHeight;
+  window.addEventListener('resize', () => {
+    heroH = document.querySelector('.hero').offsetHeight;
+    bodyScrollH = document.body.scrollHeight;
+  });
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     nav.classList.toggle('scrolled', y > 40);
-    cta.classList.toggle('hidden', y < heroH * 0.4 || y > document.body.scrollHeight - window.innerHeight - 300);
+    cta.classList.toggle('hidden', y < heroH * 0.4 || y > bodyScrollH - window.innerHeight - 300);
   });
 
   // Reveal
@@ -1180,6 +1180,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       galGoTo(0);
     });
   });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
 </script>
 <script type="application/ld+json">
 {
