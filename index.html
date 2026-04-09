@@ -21,8 +21,8 @@
   <meta name="keywords" content="apartamenty Łeba, apartamenty nad morzem, Żarnowska, Słowiński Park Narodowy, apartamenty wakacyjne Pomorze, nieruchomości Łeba, basen, inwestycja nad morzem">
   <meta name="theme-color" content="#1a5276">
   <link rel="canonical" href="https://lebskaosada.pl/">
-  <link rel="icon" type="image/png" href="wpAranzacjeOkolice/favicon.png">
-  <link rel="apple-touch-icon" href="wpAranzacjeOkolice/favicon.png">
+  <link rel="icon" type="image/png" href="wpAranzacjeOkolice/favicon.webp">
+  <link rel="apple-touch-icon" href="wpAranzacjeOkolice/favicon.webp">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -31,7 +31,7 @@
   <meta property="og:title" content="Łebska Osada — Luksusowe Apartamenty nad Morzem">
   <meta property="og:description" content="Nowoczesne apartamenty wakacyjne w Żarnowskiej k. Łeby. Basen, park narodowy, 15 min od plaży. Sprawdź ofertę i zarezerwuj wizytę.">
   <meta property="og:url" content="https://lebskaosada.pl/">
-  <meta property="og:image" content="https://lebskaosada.pl/fotki/3 BUDYNKI I BASEN_.png">
+  <meta property="og:image" content="https://lebskaosada.pl/fotki/3 BUDYNKI I BASEN_.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Łebska Osada — kompleks apartamentów z basenem">
@@ -40,7 +40,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Łebska Osada — Luksusowe Apartamenty nad Morzem">
   <meta name="twitter:description" content="Nowoczesne apartamenty wakacyjne w Żarnowskiej k. Łeby. Basen, park narodowy, 15 min od plaży.">
-  <meta name="twitter:image" content="https://lebskaosada.pl/fotki/3 BUDYNKI I BASEN_.png">
+  <meta name="twitter:image" content="https://lebskaosada.pl/fotki/3 BUDYNKI I BASEN_.webp">
 
   <!-- Geo / Lokalne SEO -->
   <meta name="geo.region" content="PL-PM">
@@ -48,12 +48,15 @@
   <meta name="geo.position" content="54.7269;17.5284">
   <meta name="ICBM" content="54.7269, 17.5284">
 
-  <link rel="preload" href="fotki/BUD. 1 I BASEN OD STRONY WJAZDU.png" as="image" fetchpriority="high">
-  <link rel="preload" href="fotki/SCENERIA NOCNA 1.png" as="image" fetchpriority="high">
-  <link rel="preload" href="fotki/3 BUDYNKI I BASEN_.png" as="image" fetchpriority="high">
+  <link rel="preload" href="fotki/BUD. 1 I BASEN OD STRONY WJAZDU.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="fotki/SCENERIA NOCNA 1.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="fotki/3 BUDYNKI I BASEN_.webp" as="image" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://connect.facebook.net">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -175,9 +178,9 @@
     /* HERO */
     .hero { position: relative; height: 100svh; min-height: 580px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
     .hero-bg-1, .hero-bg-2, .hero-bg-3 { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
-    .hero-bg-1 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/BUD.\ 1\ I\ BASEN\ OD\ STRONY\ WJAZDU.png'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade1 33s ease-in-out infinite; }
-    .hero-bg-2 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/SCENERIA\ NOCNA\ 1.png'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade2 33s ease-in-out infinite; }
-    .hero-bg-3 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/3\ BUDYNKI\ I\ BASEN_.png'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade3 33s ease-in-out infinite; }
+    .hero-bg-1 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/BUD.\ 1\ I\ BASEN\ OD\ STRONY\ WJAZDU.webp'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade1 33s ease-in-out infinite; }
+    .hero-bg-2 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/SCENERIA\ NOCNA\ 1.webp'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade2 33s ease-in-out infinite; }
+    .hero-bg-3 { background-image: linear-gradient(to bottom, rgba(20,40,70,.25) 0%, rgba(20,40,70,.05) 40%, rgba(5,15,35,.85) 100%), url('fotki/3\ BUDYNKI\ I\ BASEN_.webp'); animation: heroBreath 22s ease-in-out infinite, heroCrossfade3 33s ease-in-out infinite; }
     @keyframes heroBreath { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.055); } }
     @keyframes heroCrossfade1 { 0% { opacity: 1; } 25% { opacity: 1; } 33% { opacity: 0; } 92% { opacity: 0; } 100% { opacity: 1; } }
     @keyframes heroCrossfade2 { 0% { opacity: 0; } 28% { opacity: 0; } 36% { opacity: 1; } 58% { opacity: 1; } 66% { opacity: 0; } 100% { opacity: 0; } }
@@ -577,16 +580,18 @@
   </style>
 <!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2030720391135450');
-fbq('track', 'PageView');
+window.addEventListener('load', function() {
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2030720391135450');
+  fbq('track', 'PageView');
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
@@ -614,7 +619,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav id="mainNav">
   <a class="nav-logo" href="#">
-    <img src="wpAranzacjeOkolice/cropped-logo_osada_white.png" alt="Łebska Osada" loading="eager">
+    <img src="wpAranzacjeOkolice/cropped-logo_osada_white.webp" alt="Łebska Osada" loading="eager">
   </a>
   <div class="nav-actions">
     <a class="nav-cta-ghost" href="#formularz">Zapytaj</a>
@@ -698,7 +703,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="section-body reveal reveal-delay-2">Skrócone czasy podróży z Trójmiasta oraz centralnej i południowej Polski dzięki drodze ekspresowej S6.</p>
   <div class="lokalizacja-layout">
     <div class="map-wrap reveal">
-      <img src="wpAranzacjeOkolice/image-2.jpg" alt="Mapa lokalizacji Łebskiej Osady" loading="lazy">
+      <img src="wpAranzacjeOkolice/image-2.webp" alt="Mapa lokalizacji Łebskiej Osady" loading="lazy">
     </div>
     <div class="feature-item feature-f1 reveal"><div class="feature-icon">🚲</div><div><div class="feature-title">Ścieżki rowerowe</div><div class="feature-desc">Trasy łączące osiedle z Łebą, Żarnowską i Lęborkiem</div></div></div>
     <div class="feature-item feature-f2 reveal reveal-delay-1"><div class="feature-icon">🛣️</div><div><div class="feature-title">Trasa S6</div><div class="feature-desc">Wygodny dojazd z Trójmiasta i centralnej Polski</div></div></div>
@@ -784,28 +789,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="atrakcje-photo-track reveal" id="atrakcjeTrack">
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_374325862-min-scaled-1.jpeg" alt="Plaża w Łebie">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_374325862-min-scaled-1.webp" alt="Plaża w Łebie">
       <div class="atrakcja-title">Plaża w Łebie</div>
       <div class="atrakcja-desc">Jedna z najszerszych i najczystszych plaż Bałtyku — złoty piasek, czysta woda, deptaki.</div>
       <div class="atrakcja-dist">🚲 15 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_462941342-min-scaled-1.jpeg" alt="Jezioro Łebsko">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_462941342-min-scaled-1.webp" alt="Jezioro Łebsko">
       <div class="atrakcja-title">Jezioro Łebsko</div>
       <div class="atrakcja-desc">Drugie co do wielkości jezioro w Polsce. Idealne do kajaków, windsurfingu i spokojnych spacerów brzegiem. Jest to również raj dla wędkarzy 🎣.</div>
       <div class="atrakcja-dist">🚲 6 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/wydmy-ruchome-leba-scaled.png" alt="Ruchome Wydmy">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/wydmy-ruchome-leba-scaled.webp" alt="Ruchome Wydmy">
       <div class="atrakcja-title">Ruchome Wydmy</div>
       <div class="atrakcja-desc">Unikat na skalę Europy — wydmy przemieszczające się po kilka metrów rocznie w Słowińskim Parku Narodowym.</div>
       <div class="atrakcja-dist">🚲 ~30 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
-      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_114686871-min-scaled-1.jpeg" alt="Słowiński Park Narodowy">
+      <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_114686871-min-scaled-1.webp" alt="Słowiński Park Narodowy">
       <div class="atrakcja-title">Słowiński Park Narodowy</div>
       <div class="atrakcja-desc">Rezerwat biosfery UNESCO. Bagna, lasy, wydmy i przybrzeżne jeziora — dzika przyroda tuż za progiem.</div>
       <div class="atrakcja-dist">📍 Bezpośrednie sąsiedztwo</div>
@@ -848,51 +853,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="carousel-wrap reveal">
     <div class="carousel-track" id="galTrack">
      <div class="carousel-slide" data-cat="zewnatrz">
-        <img src="fotki/SCENERIA NOCNA 2.png" alt="Łebska Osada nocna sceneria — oświetlony kompleks od zachodu" loading="lazy">
+        <img src="fotki/SCENERIA NOCNA 2.webp" alt="Łebska Osada nocna sceneria — oświetlony kompleks od zachodu" loading="lazy">
         <span class="carousel-badge">zewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="zewnatrz">
-        <img src="fotki/4 BUDYNKI BASEN JEZIORO.png" alt="Łebska Osada — cztery budynki i basen z widokiem na jezioro Łebsko" loading="lazy">
+        <img src="fotki/4 BUDYNKI BASEN JEZIORO.webp" alt="Łebska Osada — cztery budynki i basen z widokiem na jezioro Łebsko" loading="lazy">
         <span class="carousel-badge">zewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="zewnatrz">
-        <img src="fotki/BUD. 1 I BASEN OD STRONY WJAZDU.png" alt="Widok wschodni" loading="lazy">
+        <img src="fotki/BUD. 1 I BASEN OD STRONY WJAZDU.webp" alt="Widok wschodni" loading="lazy">
         <span class="carousel-badge">zewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="zewnatrz">
-        <img src="fotki/BUDYNEK 1,2,3 I BASEN.png" alt="Osiedle z góry" loading="lazy">
+        <img src="fotki/BUDYNEK 1,2,3 I BASEN.webp" alt="Osiedle z góry" loading="lazy">
         <span class="carousel-badge">zewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="zewnatrz">
-        <img src="fotki/BUDYNKE 1 I 2.png" alt="Łebska Osada — budynek 1 i 2 od strony ogrodu" loading="lazy">
+        <img src="fotki/BUDYNKE 1 I 2.webp" alt="Łebska Osada — budynek 1 i 2 od strony ogrodu" loading="lazy">
         <span class="carousel-badge">zewnątrz</span>
       </div>
         <div class="carousel-slide" data-cat="zewnatrz">
-        <img src="fotki/OSIEDLE CAŁE_.png" alt="Łebska Osada — widok z lotu ptaka na całe osiedle apartamentów" loading="lazy">
+        <img src="fotki/OSIEDLE CAŁE_.webp" alt="Łebska Osada — widok z lotu ptaka na całe osiedle apartamentów" loading="lazy">
         <span class="carousel-badge">zewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="wewnatrz">
-        <img src="wpAranzacjeOkolice/IMG_8969-1.jpg" alt="Apartament Łebska Osada — nowoczesny salon z aneksem kuchennym" loading="lazy">
+        <img src="wpAranzacjeOkolice/IMG_8969-1.webp" alt="Apartament Łebska Osada — nowoczesny salon z aneksem kuchennym" loading="lazy">
         <span class="carousel-badge wewnatrz">wewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="wewnatrz">
-        <img src="wpAranzacjeOkolice/IMG_9000-Edit-1.jpg" alt="Apartament Łebska Osada — wykończona kuchnia z wysokiej jakości sprzętem" loading="lazy">
+        <img src="wpAranzacjeOkolice/IMG_9000-Edit-1.webp" alt="Apartament Łebska Osada — wykończona kuchnia z wysokiej jakości sprzętem" loading="lazy">
         <span class="carousel-badge wewnatrz">wewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="wewnatrz">
-        <img src="wpAranzacjeOkolice/IMG_9010-Edit-1.jpg" alt="Apartament Łebska Osada — sypialnia z widokiem na zieleń" loading="lazy">
+        <img src="wpAranzacjeOkolice/IMG_9010-Edit-1.webp" alt="Apartament Łebska Osada — sypialnia z widokiem na zieleń" loading="lazy">
         <span class="carousel-badge wewnatrz">wewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="wewnatrz">
-        <img src="wpAranzacjeOkolice/IMG_9185-Edit-1.jpg" alt="Apartament Łebska Osada — łazienka z kabiną prysznicową i białymi kafelkami" loading="lazy">
+        <img src="wpAranzacjeOkolice/IMG_9185-Edit-1.webp" alt="Apartament Łebska Osada — łazienka z kabiną prysznicową i białymi kafelkami" loading="lazy">
         <span class="carousel-badge wewnatrz">wewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="wewnatrz">
-        <img src="wpAranzacjeOkolice/IMG_9212-Edit-1.jpg" alt="Apartament Łebska Osada — przestronny salon z sofą i jadalnią" loading="lazy">
+        <img src="wpAranzacjeOkolice/IMG_9212-Edit-1.webp" alt="Apartament Łebska Osada — przestronny salon z sofą i jadalnią" loading="lazy">
         <span class="carousel-badge wewnatrz">wewnątrz</span>
       </div>
       <div class="carousel-slide" data-cat="wewnatrz">
-        <img src="wpAranzacjeOkolice/IMG_9216-Edit-1.jpg" alt="Salon z balkonem" loading="lazy">
+        <img src="wpAranzacjeOkolice/IMG_9216-Edit-1.webp" alt="Salon z balkonem" loading="lazy">
         <span class="carousel-badge wewnatrz">wewnątrz</span>
       </div>
     </div>
@@ -1003,7 +1008,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <footer>
-  <div class="footer-logo"><img src="wpAranzacjeOkolice/cropped-logo_osada_white.png" alt="Łebska Osada"></div>
+  <div class="footer-logo"><img src="wpAranzacjeOkolice/cropped-logo_osada_white.webp" alt="Łebska Osada"></div>
   <p>© 2026 Łebska Osada · lebskaosada.pl<br>Łeba, województwo pomorskie, Polska</p>
 </footer>
 
@@ -1038,7 +1043,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Aktywuj reveal tylko gdy JS działa — elementy domyślnie widoczne
   document.documentElement.classList.add('js-loaded');
 
@@ -1199,10 +1204,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     "longitude": "17.5284"
   },
   "image": [
-    "https://lebskaosada.pl/fotki/3 BUDYNKI I BASEN_.png",
-    "https://lebskaosada.pl/fotki/SCENERIA NOCNA 1.png"
+    "https://lebskaosada.pl/fotki/3 BUDYNKI I BASEN_.webp",
+    "https://lebskaosada.pl/fotki/SCENERIA NOCNA 1.webp"
   ],
-  "logo": "https://lebskaosada.pl/wpAranzacjeOkolice/cropped-logo_osada_white.png",
+  "logo": "https://lebskaosada.pl/wpAranzacjeOkolice/cropped-logo_osada_white.webp",
   "priceRange": "zł zł zł",
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Basen zewnętrzny", "value": true },
