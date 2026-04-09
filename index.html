@@ -188,6 +188,7 @@
     .hero-badge::before { content: '🌊'; font-size: .85rem; }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 9vw, 4.5rem); font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 12px; text-shadow: 0 2px 16px rgba(0,0,0,.6), 0 1px 4px rgba(0,0,0,.4); }
     .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-seo { font-family: 'DM Sans', sans-serif; font-size: .8rem; font-weight: 400; color: rgba(255,255,255,.6); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; text-shadow: none; }
     .hero-sub { font-size: .95rem; color: rgba(255,255,255,.95); margin-bottom: 28px; font-weight: 400; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
     .hero-sub strong { color: var(--gold-light); font-weight: 500; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -411,12 +412,16 @@
     .kontakt h2.section-title { color: #fff; }
     .kontakt p.section-body { color: rgba(255,255,255,.65); margin: 0 auto 32px; }
     .contact-cards { display: flex; flex-direction: column; gap: 12px; }
-    .contact-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; transition: background .2s; text-align: left; }
-    .contact-card:hover { background: rgba(255,255,255,.12); }
+    .contact-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; transition: background .2s; text-align: left; cursor: default; min-width: 0; }
+    .contact-card[data-href] { cursor: pointer; }
+    .contact-card[data-href]:hover { background: rgba(255,255,255,.12); }
+    .contact-val { font-size: .95rem; color: #fff; word-break: break-all; }
     .contact-icon { font-size: 1.3rem; width: 44px; height: 44px; background: rgba(192,154,82,.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-label { font-size: .72rem; color: var(--gold-light); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 3px; }
-    .contact-val { font-size: .95rem; color: #fff; }
     .contact-name { font-size: .8rem; color: rgba(255,255,255,.6); margin-top: .15rem; }
+    .contact-card .contact-val,
+    .contact-card .contact-name { user-select: text; cursor: text; }
+    .fab-call-label { user-select: text; cursor: text; }
     .krs-info { margin-top: 48px; padding: 18px; background: rgba(0,0,0,.2); border-radius: 14px; font-size: .7rem; color: rgba(255,255,255,.3); line-height: 1.7; text-align: left; }
 
     /* ATRAKCJE */
@@ -495,8 +500,8 @@
     @media (min-width: 640px) {
       .atuty-grid { grid-template-columns: repeat(3,1fr); }
       .apart-grid { display: grid; grid-template-columns: 1fr 1fr; }
-      .contact-cards { flex-direction: row; flex-wrap: wrap; }
-      .contact-card { flex: 1; min-width: 200px; }
+      .contact-cards { display: grid; grid-template-columns: 1fr 1fr; }
+      .contact-card { flex: unset; min-width: unset; }
       .carousel-slide { aspect-ratio: 16/9; }
       .atrakcja-img { height: 460px; }
       .atrakcje-photo-wrap { overflow: hidden; }
@@ -518,6 +523,56 @@
     }
     @media (min-width: 1024px) {
       html { font-size: 130%; }
+    }
+    /* FLOATING CALL BUTTON */
+    .fab-call {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: linear-gradient(135deg, #c0501a 0%, #c09a52 100%);
+      color: #fff;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(192,80,26,.5);
+      text-decoration: none;
+      overflow: hidden;
+      max-width: 52px;
+      transition: max-width .35s cubic-bezier(.4,0,.2,1), padding .35s, box-shadow .2s, filter .2s;
+      animation: fabPulse 2.8s ease-in-out infinite;
+    }
+    .fab-call:hover {
+      max-width: 240px;
+      filter: brightness(1.12);
+      box-shadow: 0 6px 28px rgba(192,80,26,.65);
+      animation: none;
+    }
+    @keyframes fabPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(192,80,26,.5); }
+      50% { box-shadow: 0 4px 28px rgba(192,80,26,.8), 0 0 0 7px rgba(192,80,26,.15); }
+    }
+    .fab-call-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fab-call-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .fab-call-label {
+      white-space: nowrap;
+      font-size: .88rem;
+      font-weight: 500;
+      padding-right: 18px;
+      opacity: 0;
+      transition: opacity .2s .1s;
+    }
+    .fab-call:hover .fab-call-label { opacity: 1; }
+    @media (max-width: 480px) {
+      .fab-call { bottom: 20px; right: 16px; }
     }
   </style>
 <!-- Meta Pixel Code -->
@@ -575,6 +630,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-content">
     <div class="hero-badge">Łeba, Polska</div>
     <h1>Gotowe mieszkania<br>na <em>nadmorskim</em><br>osiedlu</h1>
+    <h2 class="hero-seo">Apartamenty na sprzedaż w Łebie</h2>
     <p class="hero-sub">Lokale już od <strong>9 000 zł/m²</strong> z 8% VAT</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#listaapartamentow">Dostępne apartamenty</a>
@@ -638,7 +694,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- LOKALIZACJA -->
 <section class="lokalizacja" id="lokalizacja">
   <div class="section-label reveal">Gdzie jesteśmy</div>
-  <h2 class="section-title reveal reveal-delay-1">Unikalna<br><em>lokalizacja</em></h2>
+  <h2 class="section-title reveal reveal-delay-1">Apartamenty na sprzedaż w Łebie —<br><em>unikalna lokalizacja</em></h2>
   <p class="section-body reveal reveal-delay-2">Skrócone czasy podróży z Trójmiasta oraz centralnej i południowej Polski dzięki drodze ekspresowej S6.</p>
   <div class="lokalizacja-layout">
     <div class="map-wrap reveal">
@@ -655,7 +711,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- APARTAMENTY -->
 <section class="apartamenty" id="listaapartamentow">
   <div class="section-label reveal">Oferta</div>
-  <h2 class="section-title reveal reveal-delay-1">Dostępne<br><em>apartamenty</em></h2>
+  <h2 class="section-title reveal reveal-delay-1">Apartamenty na sprzedaż<br>w <em>Łebie</em></h2>
   <p class="section-body reveal reveal-delay-2">6 lokali gotowych do odbioru. Każdy z antresolą i miejscem parkingowym.</p>
   <div class="apart-filter reveal">
     <button class="filter-btn active" data-rooms="all">Wszystkie</button>
@@ -891,7 +947,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FORMULARZ KONTAKTOWY -->
 <section class="formularz" id="formularz">
   <div class="section-label reveal">Formularz kontaktowy</div>
-  <h2 class="section-title reveal reveal-delay-1">Zapytaj o<br><em>apartament</em></h2>
+  <h2 class="section-title reveal reveal-delay-1">Zapytaj o apartamenty<br>na sprzedaż w <em>Łebie</em></h2>
   <p class="section-body reveal reveal-delay-2">Wypełnij formularz — odpiszemy lub oddzwonimy w ciągu jednego dnia roboczego.</p>
   <div class="form-wrap reveal reveal-delay-3">
     <form id="contactForm" novalidate>
@@ -931,13 +987,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="section-title reveal reveal-delay-1">Zainteresowany?<br><em>Porozmawiajmy</em></h2>
   <p class="section-body reveal reveal-delay-2">Nasz zespół odpowie na każde pytanie — o lokale, finansowanie, terminy odbioru i wszystko inne.</p>
   <div class="contact-cards reveal">
-    <a class="contact-card" href="/cdn-cgi/l/email-protection#d0a3a0a2aab5b4b1aa90bcb5b2a3bbb1bfa3b1b4b1fea0bc"><div class="contact-icon">✉️</div><div><div class="contact-label">E-mail sprzedaż</div><div class="contact-val"><span class="__cf_email__" data-cfemail="dba8aba9a1bebfbaa19bb7beb9a8b0bab4a8babfbaf5abb7">sprzedaz@lebskaosada.pl</span></div></div></a>
-    <a class="contact-card" href="tel:+48792503213"><div class="contact-icon">📞</div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 792 503 213</div><div class="contact-name">Patrycja Leonowicz</div></div></a>
-    <a class="contact-card" href="tel:+48500299775"><div class="contact-icon">📱</div><div><div class="contact-label">Tel. firmowy</div><div class="contact-val">+48 500 299 775</div><div class="contact-name">Jarosław Szreder</div></div></a>
+    <div class="contact-card" data-href="mailto:sprzedaz@lebskaosada.pl"><div class="contact-icon">✉️</div><div><div class="contact-label">E-mail sprzedaż</div><div class="contact-val">sprzedaz@lebskaosada.pl</div></div></div>
+    <div class="contact-card" data-href="tel:+48792503213"><div class="contact-icon">📞</div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 792 503 213</div><div class="contact-name">Patrycja Leonowicz</div></div></div>
+    <div class="contact-card" data-href="tel:+48500299775"><div class="contact-icon">📱</div><div><div class="contact-label">Tel. firmowy</div><div class="contact-val">+48 500 299 775</div><div class="contact-name">Jarosław Szreder</div></div></div>
     <div class="contact-card"><div class="contact-icon">📍</div><div><div class="contact-label">Lokalizacja</div><div class="contact-val">Łeba, woj. pomorskie</div></div></div>
-    <a class="contact-card" href="https://www.facebook.com/osiedlelebskaosada" target="_blank" rel="noopener"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#c09a52"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><div><div class="contact-label">Facebook</div><div class="contact-val">Osiedle Łebska Osada</div></div></a>
-    <a class="contact-card" href="https://www.linkedin.com/in/jaros%C5%82aw-szreder-86058a5b/" target="_blank" rel="noopener"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#c09a52"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div><div class="contact-label">LinkedIn</div><div class="contact-val">Jarosław Szreder</div></div></a>
-    <a class="contact-card" href="https://www.instagram.com/lebskaosada.pl/" target="_blank" rel="noopener"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c09a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="contact-label">Instagram</div><div class="contact-val">@lebskaosada.pl</div></div></a>
+    <div class="contact-card" data-href="https://www.facebook.com/osiedlelebskaosada" data-target="_blank"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#c09a52"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><div><div class="contact-label">Facebook</div><div class="contact-val">Osiedle Łebska Osada</div></div></div>
+    <div class="contact-card" data-href="https://www.linkedin.com/in/jaros%C5%82aw-szreder-86058a5b/" data-target="_blank"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#c09a52"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div><div class="contact-label">LinkedIn</div><div class="contact-val">Jarosław Szreder</div></div></div>
+    <div class="contact-card" data-href="https://www.instagram.com/lebskaosada.pl/" data-target="_blank"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c09a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="contact-label">Instagram</div><div class="contact-val">@lebskaosada.pl</div></div></div>
   </div>
   <div class="krs-info reveal">
     Łebska sp. z o.o. z siedzibą w Gdyni · KRS 0000808734 · NIP 839-321-40-89 · REGON 384716666<br>
@@ -1211,5 +1267,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 })();
 </script>
+<script>
+  // Contact cards: click navigates, but clicking on value/name text allows selection
+  document.querySelectorAll('.contact-card[data-href]').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      var href = card.getAttribute('data-href');
+      var target = card.getAttribute('data-target');
+      if (target === '_blank') { window.open(href, '_blank', 'noopener'); }
+      else { window.location.href = href; }
+    });
+  });
+  document.querySelectorAll('.contact-card .contact-val, .contact-card .contact-name').forEach(function(el) {
+    el.addEventListener('mousedown', function(e) { e.stopPropagation(); });
+    el.addEventListener('click', function(e) { e.stopPropagation(); });
+  });
+  // FAB label: allow text selection
+  var fabLabel = document.querySelector('.fab-call-label');
+  if (fabLabel) fabLabel.addEventListener('click', function(e) { e.stopPropagation(); });
+</script>
+
+<!-- FLOATING CALL BUTTON -->
+<a class="fab-call" href="tel:+48792503213" aria-label="Zadzwoń do nas">
+  <span class="fab-call-icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/>
+    </svg>
+  </span>
+  <span class="fab-call-label">+48 500 299 775</span>
+</a>
+
 </body>
 </html>
