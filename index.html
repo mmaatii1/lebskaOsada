@@ -188,7 +188,7 @@
     .hero-content { position: relative; z-index: 2; padding: 0 24px 48px; animation: heroFadeUp 1s ease .3s both; }
     @keyframes heroFadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
     .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(192,154,82,.9); color: #fff; font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 40px; margin-bottom: 16px; }
-    .hero-badge::before { content: '🌊'; font-size: .85rem; }
+    .hero-badge svg { width: .9rem; height: .9rem; flex-shrink: 0; fill: currentColor; }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 9vw, 4.5rem); font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 12px; text-shadow: 0 2px 16px rgba(0,0,0,.6), 0 1px 4px rgba(0,0,0,.4); }
     .hero h1 em { font-style: italic; color: var(--gold-light); }
     .hero-seo { font-family: 'DM Sans', sans-serif; font-size: .8rem; font-weight: 400; color: rgba(255,255,255,.6); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; text-shadow: none; }
@@ -442,6 +442,8 @@
     .atrakcje-nav { display: none; justify-content: center; margin-top: 16px; }
     .atrakcja-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(26,58,92,.1); }
     .atrakcja-icon { font-size: 1.6rem; margin-bottom: 2px; }
+    .atut-icon svg, .feature-icon svg, .atrakcja-icon svg, .contact-icon svg { width: 1.3em; height: 1.3em; display: block; fill: currentColor; }
+    .icon-inline { display: inline-block; vertical-align: text-bottom; width: 1.1em; height: 1.1em; fill: currentColor; }
     .atrakcja-title { font-size: .92rem; font-weight: 500; color: var(--green-deep); line-height: 1.3; }
     .atrakcja-desc { font-size: .78rem; color: var(--text-muted); line-height: 1.5; }
     .atrakcja-dist { display: inline-flex; align-items: center; gap: 4px; font-size: .7rem; font-weight: 500; color: var(--green-light); margin-top: 4px; }
@@ -533,21 +535,22 @@
       bottom: 28px;
       right: 24px;
       z-index: 999;
-      display: flex;
-      align-items: center;
-      gap: 0;
+      width: 52px;
+      height: 52px;
+      isolation: isolate;
       background: linear-gradient(135deg, #c0501a 0%, #c09a52 100%);
       color: #fff;
-      border-radius: 50px;
+      border-radius: 50%;
       box-shadow: 0 4px 20px rgba(192,80,26,.5);
-      text-decoration: none;
-      overflow: hidden;
-      max-width: 52px;
-      transition: max-width .35s cubic-bezier(.4,0,.2,1), padding .35s, box-shadow .2s, filter .2s;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow .2s, filter .2s;
       animation: fabPulse 2.8s ease-in-out infinite;
     }
     .fab-call:hover {
-      max-width: 240px;
       filter: brightness(1.12);
       box-shadow: 0 6px 28px rgba(192,80,26,.65);
       animation: none;
@@ -556,24 +559,39 @@
       0%, 100% { box-shadow: 0 4px 20px rgba(192,80,26,.5); }
       50% { box-shadow: 0 4px 28px rgba(192,80,26,.8), 0 0 0 7px rgba(192,80,26,.15); }
     }
-    .fab-call-icon {
-      flex-shrink: 0;
-      width: 52px;
-      height: 52px;
+    .fab-call-icon { display: flex; align-items: center; justify-content: center; }
+    .fab-call-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .fab-call-menu {
+      position: absolute;
+      bottom: 62px;
+      right: 0;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      padding: 6px;
+      min-width: 248px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .2s, transform .2s;
+    }
+    .fab-call.open .fab-call-menu { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .fab-menu-item {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 12px;
+      padding: 11px 14px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 10px;
+      transition: background .15s;
     }
-    .fab-call-icon svg { width: 22px; height: 22px; fill: #fff; }
-    .fab-call-label {
-      white-space: nowrap;
-      font-size: .88rem;
-      font-weight: 500;
-      padding-right: 18px;
-      opacity: 0;
-      transition: opacity .2s .1s;
-    }
-    .fab-call:hover .fab-call-label { opacity: 1; }
+    .fab-menu-item:hover { background: var(--sand); }
+    .fab-menu-item + .fab-menu-item { border-top: 1px solid var(--sand-dark); border-radius: 0 0 10px 10px; }
+    .fab-menu-item:first-child { border-radius: 10px 10px 0 0; }
+    .fab-menu-phone { width: 20px; height: 20px; fill: var(--gold); flex-shrink: 0; }
+    .fab-menu-num { font-size: .9rem; font-weight: 600; color: var(--text); }
+    .fab-menu-name { font-size: .75rem; color: var(--text-muted); }
     @media (max-width: 480px) {
       .fab-call { bottom: 20px; right: 16px; }
     }
@@ -605,7 +623,7 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 
 
 <div class="top-banner">
-  <span class="top-banner-tag">🎉 Promocja</span>
+  <span class="top-banner-tag"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M12 2l2.4 7.3H22l-6.2 4.5 2.4 7.2L12 17.3l-6.2 3.7 2.4-7.2L2 9.3h7.6z"/></svg> Promocja</span>
   <div class="top-banner-items">
     <div class="top-banner-item"><strong>Darmowy pobyt</strong> na osiedlu przy zakupie apartamentu</div>
     <div class="top-banner-item"><strong>Zestaw AGD do kuchni</strong> gratis dla każdego nabywcy</div>
@@ -629,7 +647,7 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <div class="hero-bg-2"></div>
   <div class="hero-bg-3"></div>
   <div class="hero-content">
-    <div class="hero-badge">Łeba, Polska</div>
+    <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M3 12c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2zm0 4c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2z"/></svg>Łeba, Polska</div>
     <h1>Gotowe mieszkania<br>na <em>nadmorskim</em><br>osiedlu</h1>
     <h2 class="hero-seo">Apartamenty na sprzedaż w Łebie</h2>
     <p class="hero-sub">Lokale już od <strong>9 000 zł/m²</strong> z 8% VAT</p>
@@ -647,42 +665,42 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <h2 class="section-title reveal reveal-delay-1">Nasze<br><em>atuty</em></h2>
   <div class="atuty-grid">
       <div class="atut-card reveal reveal-delay-3">
-      <div class="atut-icon">🏊</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M16 4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm3 16.5c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2zm-1-6.5L15.5 8H14l-3 4.5L9 10 6.5 14H19z"/></svg></div>
       <div class="atut-title">Basen w cenie</div>
       <div class="atut-desc">Podgrzewana woda przez cały sezon — bez żadnych dopłat, w standardzie każdego lokalu.</div>
     </div>
     <div class="atut-card reveal reveal-delay-1">
-      <div class="atut-icon">🏖️</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M13 3c-2.76 0-5 2.24-5 5 0 2.04 1.22 3.8 3 4.58V20h2v-1h2v-2h-2v-1h2v-2h-2v-1.42A4.993 4.993 0 0018 8c0-2.76-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg></div>
       <div class="atut-title">15 min do plaży</div>
       <div class="atut-desc">Nową ścieżką rowerową prosto do Łeby — jednej z najpiękniejszych plaż Bałtyku.</div>
     </div>
     <div class="atut-card reveal reveal-delay-2">
-      <div class="atut-icon">🌊</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M3 12c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2zm0 4c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2z"/></svg></div>
       <div class="atut-title">6 min do jeziora</div>
       <div class="atut-desc">Jezioro Łebsko — drugie co do wielkości jezioro w Polsce.</div>
     </div>
     <div class="atut-card reveal reveal-delay-1">
-      <div class="atut-icon">🅿️</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M12 2H6v20h4v-6h2c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 8H10V6h2c1.1 0 2 .9 2 2s-.9 2-2 2z"/></svg></div>
       <div class="atut-title">Parking w cenie</div>
       <div class="atut-desc">Własne miejsce parkingowe bez dodatkowych kosztów — wliczone w cenę apartamentu.</div>
     </div>
      <div class="atut-card reveal reveal-delay-2">
-      <div class="atut-icon">🛜</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg></div>
       <div class="atut-title">Internet światłowodowy</div>
       <div class="atut-desc">Doprowadzone źródło internetu światłowodowego.</div>
     </div>
      <div class="atut-card reveal reveal-delay-2">
-      <div class="atut-icon">🏠</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
       <div class="atut-title">Smart home</div>
       <div class="atut-desc">Sterowanie ogrzewaniem podłogowym przez telefon.</div>
     </div>
     <div class="atut-card reveal reveal-delay-2">
-      <div class="atut-icon">✅</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
       <div class="atut-title">Standard deweloperski</div>
       <div class="atut-desc">Stan deweloperski z wykonanymi gładziami, lokale gotowe do wykończenia</div>
     </div>
       <div class="atut-card reveal">
-      <div class="atut-icon">🚲</div>
+      <div class="atut-icon"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg></div>
       <div class="atut-title">Rowerownie</div>
       <div class="atut-desc">Wygodne przechowywanie roweru w dedykowanych miejscach.</div>
     </div>
@@ -701,10 +719,10 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     <div class="map-wrap reveal">
       <img src="wpAranzacjeOkolice/image-2.webp" alt="Mapa lokalizacji Łebskiej Osady" loading="lazy">
     </div>
-    <div class="feature-item feature-f1 reveal"><div class="feature-icon">🚲</div><div><div class="feature-title">Ścieżki rowerowe</div><div class="feature-desc">Trasy łączące osiedle z Łebą, Żarnowską i Lęborkiem</div></div></div>
-    <div class="feature-item feature-f2 reveal reveal-delay-1"><div class="feature-icon">🛣️</div><div><div class="feature-title">Trasa S6</div><div class="feature-desc">Wygodny dojazd z Trójmiasta i centralnej Polski</div></div></div>
-    <div class="feature-item feature-f3 reveal reveal-delay-2"><div class="feature-icon">🏄</div><div><div class="feature-title">Morze i jezioro</div><div class="feature-desc">Plaża w Łebie – 15 min. Jezioro Łebsko – 6 min.</div></div></div>
-    <div class="feature-item feature-f4 reveal reveal-delay-3"><div class="feature-icon">🌲</div><div><div class="feature-title">Słowiński Park Narodowy</div><div class="feature-desc">Ruchome wydmy i rezerwaty tuż za progiem</div></div></div>
+    <div class="feature-item feature-f1 reveal"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg></div><div><div class="feature-title">Ścieżki rowerowe</div><div class="feature-desc">Trasy łączące osiedle z Łebą, Żarnowską i Lęborkiem</div></div></div>
+    <div class="feature-item feature-f2 reveal reveal-delay-1"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3L2 22l10-3 10 3-1-19zM12 17l-6-1.5V6l6 1.5 6-1.5v9.5L12 17z"/></svg></div><div><div class="feature-title">Trasa S6</div><div class="feature-desc">Wygodny dojazd z Trójmiasta i centralnej Polski</div></div></div>
+    <div class="feature-item feature-f3 reveal reveal-delay-2"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 12c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2zm6-3a3 3 0 100-6 3 3 0 000 6z"/></svg></div><div><div class="feature-title">Morze i jezioro</div><div class="feature-desc">Plaża w Łebie – 15 min. Jezioro Łebsko – 6 min.</div></div></div>
+    <div class="feature-item feature-f4 reveal reveal-delay-3"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L6 14h4v8h4v-8h4L12 2z"/></svg></div><div><div class="feature-title">Słowiński Park Narodowy</div><div class="feature-desc">Ruchome wydmy i rezerwaty tuż za progiem</div></div></div>
   </div>
   <div class="section-divider"><span></span></div>
 </section>
@@ -724,49 +742,49 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     <div class="apart-card reserved reveal" data-rooms="3" data-price="489890">
       <div class="apart-top"><div class="apart-id">10M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">52,35 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">11,83 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/10M6.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/10M6.pdf" target="_blank">PDF karta</a></div>
     </div>
 
     <div class="apart-card reveal reveal-delay-1" data-rooms="3" data-price="489890">
       <div class="apart-top"><div class="apart-id">8M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">53,51 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">12,92 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/8M6.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/8M6.pdf" target="_blank">PDF karta</a></div>
     </div>
 
     <div class="apart-card reveal reveal-delay-2" data-rooms="3" data-price="489890">
       <div class="apart-top"><div class="apart-id">7M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">53,52 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">12,70 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/7M6.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/7M6.pdf" target="_blank">PDF karta</a></div>
     </div>
 
     <div class="apart-card reveal reveal-delay-3" data-rooms="3" data-price="489890">
       <div class="apart-top"><div class="apart-id">4M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">53,53 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">12,66 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/4M6-1.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/4M6-1.pdf" target="_blank">PDF karta</a></div>
     </div>
 
     <div class="apart-card reserved reveal" data-rooms="3" data-price="499000">
       <div class="apart-top"><div class="apart-id">10M7</div><div class="apart-price">499 000 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">56,81 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">18,64 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/10M7.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/10M7.pdf" target="_blank">PDF karta</a></div>
     </div>
 
     <div class="apart-card reveal reveal-delay-1" data-rooms="3" data-price="499000">
       <div class="apart-top"><div class="apart-id">4M7</div><div class="apart-price">499 000 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">56,20 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">17,59 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/4M7.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/4M7.pdf" target="_blank">PDF karta</a></div>
     </div>
 
     <div class="apart-card reveal reveal-delay-2" data-rooms="2" data-price="469900">
       <div class="apart-top"><div class="apart-id">7M10</div><div class="apart-price">469 900 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">52,71 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">17,70 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">2</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/7M10.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/7M10.pdf" target="_blank">PDF karta</a></div>
     </div>
 
     <div class="apart-card reveal reveal-delay-3" data-rooms="2" data-price="469900">
       <div class="apart-top"><div class="apart-id">4M10</div><div class="apart-price">469 900 zł <span>brutto</span></div></div>
       <div class="apart-specs"><div class="spec-item"><div class="spec-val">52,74 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">17,84 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">2</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge">🏠 I piętro</span><a class="apart-pdf" href="karty-lokalow/4M10-1.pdf" target="_blank">PDF karta</a></div>
+      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/4M10-1.pdf" target="_blank">PDF karta</a></div>
     </div>
 
   </div>
@@ -788,28 +806,28 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
       <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_374325862-min-scaled-1.webp" alt="Plaża w Łebie" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Plaża w Łebie</div>
       <div class="atrakcja-desc">Jedna z najszerszych i najczystszych plaż Bałtyku — złoty piasek, czysta woda, deptaki.</div>
-      <div class="atrakcja-dist">🚲 15 min rowerem</div>
+      <div class="atrakcja-dist"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg> 15 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
       <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_462941342-min-scaled-1.webp" alt="Jezioro Łebsko" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Jezioro Łebsko</div>
-      <div class="atrakcja-desc">Drugie co do wielkości jezioro w Polsce. Idealne do kajaków, windsurfingu i spokojnych spacerów brzegiem. Jest to również raj dla wędkarzy 🎣.</div>
-      <div class="atrakcja-dist">🚲 6 min rowerem</div>
+      <div class="atrakcja-desc">Drugie co do wielkości jezioro w Polsce. Idealne do kajaków, windsurfingu i spokojnych spacerów brzegiem. Jest to również raj dla wędkarzy <svg class="icon-inline" viewBox="0 0 24 24"><path d="M20.5 3l-1.5 1.5L20.5 6 19 7.5 17 5.5 15.5 7 17 8.5l-5 5-3-3L3 17l1.5 1.5 5-5 3 3 7-7L21 11l1-1L20.5 3zM3 21h2v-2H3v2z"/></svg>.</div>
+      <div class="atrakcja-dist"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg> 6 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
       <img class="atrakcja-img" src="wpAranzacjeOkolice/wydmy-ruchome-leba-scaled.webp" alt="Ruchome Wydmy" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Ruchome Wydmy</div>
       <div class="atrakcja-desc">Unikat na skalę Europy — wydmy przemieszczające się po kilka metrów rocznie w Słowińskim Parku Narodowym.</div>
-      <div class="atrakcja-dist">🚲 ~30 min rowerem</div>
+      <div class="atrakcja-dist"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg> ~30 min rowerem</div>
     </div>
 
     <div class="atrakcja-card">
       <img class="atrakcja-img" src="wpAranzacjeOkolice/AdobeStock_114686871-min-scaled-1.webp" alt="Słowiński Park Narodowy" width="1266" height="933" loading="lazy">
       <div class="atrakcja-title">Słowiński Park Narodowy</div>
       <div class="atrakcja-desc">Rezerwat biosfery UNESCO. Bagna, lasy, wydmy i przybrzeżne jeziora — dzika przyroda tuż za progiem.</div>
-      <div class="atrakcja-dist">📍 Bezpośrednie sąsiedztwo</div>
+      <div class="atrakcja-dist"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Bezpośrednie sąsiedztwo</div>
     </div>
 
   </div>
@@ -820,17 +838,17 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <div class="atrakcje-simple-grid reveal">
 
     <div class="atrakcja-card">
-      <div class="atrakcja-icon">🚲</div>
+      <div class="atrakcja-icon"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg></div>
       <div class="atrakcja-title">Trasy rowerowe</div>
       <div class="atrakcja-desc">Sieć ścieżek łącząca osiedle z Łebą, Żarnowską i Lęborkiem — wygodnie, bezpiecznie, bez samochodu.</div>
-      <div class="atrakcja-dist">🛣️ Bezpośredni dostęp</div>
+      <div class="atrakcja-dist"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M21 3H3L2 22l10-3 10 3-1-19zM12 17l-6-1.5V6l6 1.5 6-1.5v9.5L12 17z"/></svg> Bezpośredni dostęp</div>
     </div>
 
     <div class="atrakcja-card">
-      <div class="atrakcja-icon">⛵</div>
+      <div class="atrakcja-icon"><svg viewBox="0 0 24 24"><path d="M3 17h18l-9-14-9 14zm9-11l6.5 9H5.5L12 6zM2 19v2h20v-2H2z"/></svg></div>
       <div class="atrakcja-title">Port i promenada w Łebie</div>
       <div class="atrakcja-desc">Rejsy statkiem, ryby prosto z kutra, restauracje nad wodą i tętniąca życiem promenada przez cały sezon.</div>
-      <div class="atrakcja-dist">🚲 15 min rowerem</div>
+      <div class="atrakcja-dist"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg> 15 min rowerem</div>
     </div>
 
   </div>
@@ -920,20 +938,20 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     <div class="promo-bg"></div>
     <div class="promo-inner">
       <div class="promo-text">
-        <div class="promo-eyebrow">🎉 Aktualna promocja</div>
+        <div class="promo-eyebrow"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M12 2l2.4 7.3H22l-6.2 4.5 2.4 7.2L12 17.3l-6.2 3.7 2.4-7.2L2 9.3h7.6z"/></svg> Aktualna promocja</div>
         <h2>Specjalna oferta<br>dla <em>kupujących</em></h2>
         <p>Wyjątkowe warunki dla nabywców lokali w Łebskiej Osadzie. Ograniczona liczba miejsc — pobierz regulamin i dowiedz się więcej.</p>
         <div class="promo-highlights">
-          <div class="promo-highlight-item featured">🏖️ <strong>Darmowy pobyt</strong> na osiedlu przy zakupie apartamentu — wliczony w ofertę</div>
-          <div class="promo-highlight-item featured">🍳 <strong>Zestaw AGD do kuchni</strong> gratis — lodówka, zmywarka, piekarnik i płyta indukcyjna</div>
-          <div class="promo-highlight-item">🏷️ <strong>Atrakcyjna cena</strong> — lokale już od 9 000 zł/m² z 8% VAT</div>
-          <div class="promo-highlight-item">🅿️ <strong>Miejsce parkingowe</strong> — w cenie każdego apartamentu</div>
-          <div class="promo-highlight-item">🏊 <strong>Dostęp do basenu</strong> z podgrzewaną wodą bez dodatkowych opłat</div>
-          <div class="promo-highlight-item">🔑 <strong>Gotowe do odbioru</strong> lokale w stanie deweloperskim z wykonanymi gładziami</div>
+          <div class="promo-highlight-item featured"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M13 3c-2.76 0-5 2.24-5 5 0 2.04 1.22 3.8 3 4.58V20h2v-1h2v-2h-2v-1h2v-2h-2v-1.42A4.993 4.993 0 0018 8c0-2.76-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg> <strong>Darmowy pobyt</strong> na osiedlu przy zakupie apartamentu — wliczony w ofertę</div>
+          <div class="promo-highlight-item featured"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M18 6h-2V3H8v3H6c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-5 9c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm5-9H6l12 .01V6z"/></svg> <strong>Zestaw AGD do kuchni</strong> gratis — lodówka, zmywarka, piekarnik i płyta indukcyjna</div>
+          <div class="promo-highlight-item"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h11c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"/></svg> <strong>Atrakcyjna cena</strong> — lokale już od 9 000 zł/m² z 8% VAT</div>
+          <div class="promo-highlight-item"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M12 2H6v20h4v-6h2c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 8H10V6h2c1.1 0 2 .9 2 2s-.9 2-2 2z"/></svg> <strong>Miejsce parkingowe</strong> — w cenie każdego apartamentu</div>
+          <div class="promo-highlight-item"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M16 4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm3 16.5c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2zm-1-6.5L15.5 8H14l-3 4.5L9 10 6.5 14H19z"/></svg> <strong>Dostęp do basenu</strong> z podgrzewaną wodą bez dodatkowych opłat</div>
+          <div class="promo-highlight-item"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M12.65 10A5.99 5.99 0 007 4a6 6 0 000 12 5.99 5.99 0 005.65-4H17v4h4v-4h2v-2H12.65zM7 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg> <strong>Gotowe do odbioru</strong> lokale w stanie deweloperskim z wykonanymi gładziami</div>
         </div>
         <div class="promo-actions">
           <a class="promo-btn-main" href="wpAranzacjeOkolice/REGULAMIN-PROMOCJI-POBYTU-NA-OSIEDLU-LEBSKA-OSADA-1.pdf" target="_blank">
-            📄 Pobierz regulamin
+            <svg class="icon-inline" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg> Pobierz regulamin
           </a>
            <a class="promo-btn-main" href="#hero-top">
             Powrót na górę
@@ -988,10 +1006,10 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <h2 class="section-title reveal reveal-delay-1">Zainteresowany?<br><em>Porozmawiajmy</em></h2>
   <p class="section-body reveal reveal-delay-2">Nasz zespół odpowie na każde pytanie — o lokale, finansowanie, terminy odbioru i wszystko inne.</p>
   <div class="contact-cards reveal">
-    <div class="contact-card" data-href="mailto:sprzedaz@lebskaosada.pl"><div class="contact-icon">✉️</div><div><div class="contact-label">E-mail sprzedaż</div><div class="contact-val">sprzedaz@lebskaosada.pl</div></div></div>
-    <div class="contact-card" data-href="tel:+48792503213"><div class="contact-icon">📞</div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 792 503 213</div><div class="contact-name">Patrycja Leonowicz</div></div></div>
-    <div class="contact-card" data-href="tel:+48500299775"><div class="contact-icon">📱</div><div><div class="contact-label">Tel. firmowy</div><div class="contact-val">+48 500 299 775</div><div class="contact-name">Jarosław Szreder</div></div></div>
-    <div class="contact-card"><div class="contact-icon">📍</div><div><div class="contact-label">Lokalizacja</div><div class="contact-val">Łeba, woj. pomorskie</div></div></div>
+    <div class="contact-card" data-href="mailto:sprzedaz@lebskaosada.pl"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><div class="contact-label">E-mail sprzedaż</div><div class="contact-val">sprzedaz@lebskaosada.pl</div></div></div>
+    <div class="contact-card" data-href="tel:+48792503213"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg></div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 792 503 213</div><div class="contact-name">Patrycja Leonowicz</div></div></div>
+    <div class="contact-card" data-href="tel:+48500299775"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5S10.67 18 11.5 18s1.5.67 1.5 1.5S12.33 22 11.5 22zm4.5-4H7V4h9v14z"/></svg></div><div><div class="contact-label">Tel. firmowy</div><div class="contact-val">+48 500 299 775</div><div class="contact-name">Jarosław Szreder</div></div></div>
+    <div class="contact-card"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div><div class="contact-label">Lokalizacja</div><div class="contact-val">Łeba, woj. pomorskie</div></div></div>
     <div class="contact-card" data-href="https://www.facebook.com/osiedlelebskaosada" data-target="_blank"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#c09a52"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><div><div class="contact-label">Facebook</div><div class="contact-val">Osiedle Łebska Osada</div></div></div>
     <div class="contact-card" data-href="https://www.linkedin.com/in/jaros%C5%82aw-szreder-86058a5b/" data-target="_blank"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#c09a52"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div><div class="contact-label">LinkedIn</div><div class="contact-val">Jarosław Szreder</div></div></div>
     <div class="contact-card" data-href="https://www.instagram.com/lebskaosada.pl/" data-target="_blank"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c09a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="contact-label">Instagram</div><div class="contact-val">@lebskaosada.pl</div></div></div>
@@ -1290,20 +1308,42 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     el.addEventListener('mousedown', function(e) { e.stopPropagation(); });
     el.addEventListener('click', function(e) { e.stopPropagation(); });
   });
-  // FAB label: allow text selection
-  var fabLabel = document.querySelector('.fab-call-label');
-  if (fabLabel) fabLabel.addEventListener('click', function(e) { e.stopPropagation(); });
+  // FAB: toggle phone menu on click
+  var fabCall = document.getElementById('fabCall');
+  if (fabCall) {
+    fabCall.addEventListener('click', function(e) {
+      fabCall.classList.toggle('open');
+      fabCall.setAttribute('aria-expanded', fabCall.classList.contains('open') ? 'true' : 'false');
+      e.stopPropagation();
+    });
+    document.addEventListener('click', function() {
+      fabCall.classList.remove('open');
+      fabCall.setAttribute('aria-expanded', 'false');
+    });
+    fabCall.querySelectorAll('.fab-menu-item').forEach(function(item) {
+      item.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+  }
 </script>
 
 <!-- FLOATING CALL BUTTON -->
-<a class="fab-call" href="tel:+48792503213" aria-label="Zadzwoń do nas">
+<div class="fab-call" id="fabCall" role="button" tabindex="0" aria-label="Zadzwoń do nas" aria-expanded="false">
   <span class="fab-call-icon">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/>
     </svg>
   </span>
-  <span class="fab-call-label">+48 500 299 775</span>
-</a>
+  <div class="fab-call-menu">
+    <a class="fab-menu-item" href="tel:+48792503213">
+      <svg class="fab-menu-phone" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+      <div><div class="fab-menu-num">+48 792 503 213</div><div class="fab-menu-name">Patrycja Leonowicz</div></div>
+    </a>
+    <a class="fab-menu-item" href="tel:+48500299775">
+      <svg class="fab-menu-phone" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+      <div><div class="fab-menu-num">+48 500 299 775</div><div class="fab-menu-name">Jarosław Szreder</div></div>
+    </a>
+  </div>
+</div>
 
 </body>
 </html>
