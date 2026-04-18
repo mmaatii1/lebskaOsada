@@ -22,7 +22,7 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
           dry-run: ${{ inputs.dry_run }}
           exclude: |
             **/.git*
