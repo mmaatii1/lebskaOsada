@@ -479,16 +479,15 @@
     }
 
     /* SEO CONTENT */
-    .seo-content { background: var(--sand); padding: 60px 24px; border-top: 1px solid var(--sand-dark); }
+    .seo-content { background: var(--sand); padding: 52px 24px; border-top: 1px solid var(--sand-dark); }
     .seo-inner { max-width: 960px; margin: 0 auto; }
-    .seo-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--text); margin-bottom: 8px; font-weight: 600; }
-    .seo-intro { font-size: .88rem; color: var(--text-muted); margin-bottom: 36px; max-width: 640px; line-height: 1.7; }
-    .seo-cols { display: grid; grid-template-columns: 1fr; gap: 28px; }
-    .seo-col h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--green-deep); margin-bottom: 8px; font-weight: 600; }
-    .seo-col p { font-size: .82rem; color: var(--text-muted); line-height: 1.75; }
-    .seo-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
-    .seo-tag { font-size: .75rem; color: var(--text-muted); background: var(--sand-dark); border-radius: 20px; padding: 4px 12px; }
-    @media (min-width: 640px) { .seo-cols { grid-template-columns: repeat(3, 1fr); } }
+    .seo-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .seo-item { background: #fff; border-radius: 14px; padding: 18px 20px; border: 1px solid var(--sand-dark); }
+    .seo-phrase { display: inline-flex; align-items: center; gap: 5px; font-size: .76rem; font-weight: 500; color: var(--green-deep); background: var(--sand-dark); border-radius: 20px; padding: 4px 11px; margin-bottom: 9px; }
+    .seo-phrase svg { width: .85em; height: .85em; fill: currentColor; flex-shrink: 0; }
+    .seo-item p { font-size: .79rem; color: var(--text-muted); line-height: 1.7; margin: 0; }
+    @media (min-width: 600px) { .seo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .seo-grid { grid-template-columns: repeat(3, 1fr); } }
 
     /* FOOTER */
     footer { background: #0d2137; padding: 28px 24px; text-align: center; }
@@ -1159,39 +1158,68 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 
 <section class="seo-content">
   <div class="seo-inner">
-    <h2>Apartamenty nad morzem – Łeba i okolice</h2>
-    <p class="seo-intro">Łebska Osada to kompleks luksusowych apartamentów w Żarnowskiej k. Łeby — idealny wybór dla osób szukających własnego miejsca nad Bałtykiem lub rentownej inwestycji nad morzem.</p>
-    <div class="seo-cols">
-      <div class="seo-col">
-        <h3>Apartamenty wakacyjne w Łebie</h3>
-        <p>Szukasz apartamentów do wynajęcia w Łebie lub okolicach? Żarnowska leży zaledwie kilka minut od centrum Łeby i plaży nad Bałtykiem. Łebska Osada to idealne noclegi nad morzem dla rodzin, par i grup — z prywatnym basenem, ogrodem i pełnym wyposażeniem. Wynajem apartamentów Łeba nigdy nie był prostszy.</p>
+    <div class="seo-grid">
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>apartamenty nad morzem w Polsce</div>
+        <p>Łebska Osada to jedne z najpremiumniej wyposażonych apartamentów nad polskim morzem — z prywatnym basenem, dużymi tarasami i lasem tuż za oknem. Tu urlop nad Bałtykiem nabiera zupełnie nowego znaczenia.</p>
       </div>
-      <div class="seo-col">
-        <h3>Luksusowe apartamenty nad Bałtykiem</h3>
-        <p>Łebska Osada oferuje luksusowe apartamenty nad morzem ze standardem premium: prywatny basen, tarasy, widok na las i wydmy. To jedne z najlepiej wyposażonych apartamentów na Pomorzu — apartamenty z basenem nad morzem w wyjątkowej lokalizacji tuż przy Słowińskim Parku Narodowym. Wakacje nad morzem w Polsce na najwyższym poziomie.</p>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>apartamenty w Łebie</div>
+        <p>Żarnowska, gdzie leży Łebska Osada, jest zaledwie 5 minut drogi od centrum Łeby i jej słynnej, szerokiej plaży. To idealne miejsce dla szukających apartamentów w Łebie z dala od tłumów, a blisko wszystkiego.</p>
       </div>
-      <div class="seo-col">
-        <h3>Inwestycja w apartament nad morzem</h3>
-        <p>Kupno apartamentu nad morzem to popularna forma inwestycji w Polsce. Apartamenty inwestycyjne nad Bałtykiem w Łebie i Żarnowskiej cieszą się wysokim obłożeniem przez cały rok. Łebska Osada to apartamenty na sprzedaż nad morzem z pełną obsługą operatora najmu — gotowa inwestycja, która zarabia od pierwszego sezonu.</p>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>apartamenty Żarnowska</div>
+        <p>Żarnowska to spokojna miejscowość przy granicy Słowińskiego Parku Narodowego, gdzie kończy się betonowy deptak i zaczyna dzika przyroda. Apartamenty w Żarnowskiej łączą ciszę lasu z bliskością morza i centrum Łeby.</p>
       </div>
-    </div>
-    <div class="seo-tags" aria-label="Popularne wyszukiwania">
-      <span class="seo-tag">apartamenty nad morzem</span>
-      <span class="seo-tag">apartamenty Łeba</span>
-      <span class="seo-tag">apartamenty w Łebie</span>
-      <span class="seo-tag">noclegi Łeba</span>
-      <span class="seo-tag">apartamenty Żarnowska</span>
-      <span class="seo-tag">wynajem apartamentów nad Bałtykiem</span>
-      <span class="seo-tag">wakacje nad morzem Polska</span>
-      <span class="seo-tag">apartamenty z basenem nad morzem</span>
-      <span class="seo-tag">luksusowe apartamenty Łeba</span>
-      <span class="seo-tag">apartamenty na sprzedaż nad morzem</span>
-      <span class="seo-tag">inwestycja apartament morze</span>
-      <span class="seo-tag">apartamenty Pomorze</span>
-      <span class="seo-tag">noclegi Żarnowska</span>
-      <span class="seo-tag">apartamenty Słowiński Park Narodowy</span>
-      <span class="seo-tag">wakacje Łeba</span>
-      <span class="seo-tag">apartamenty Bałtyk</span>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>noclegi Łeba</div>
+        <p>Szukasz noclegu w Łebie na tydzień lub cały sezon letni? Łebska Osada oferuje komfortowy wynajem apartamentów z pełnym wyposażeniem, basenem i ogrodem — idealny dla rodzin, par i grup przyjaciół.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>wynajem apartamentów nad Bałtykiem</div>
+        <p>Wynajem apartamentu nad Bałtykiem w Łebskiej Osadzie to własna przestrzeń z kuchnią, tarasem i basenem — coś, czego hotel nigdy nie da. Operatorem najmu jest doświadczona firma, która obsługuje gości od A do Z.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>apartamenty z basenem nad morzem</div>
+        <p>Prywatny basen to rzadkość wśród apartamentów nad Bałtykiem — w Łebskiej Osadzie jest standardem dostępnym dla wszystkich mieszkańców kompleksu. To idealne rozwiązanie dla rodzin z dziećmi i osób ceniących komfort po powrocie z plaży.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>luksusowe apartamenty nad morzem</div>
+        <p>Łebska Osada to odpowiedź dla tych, którym standardowy hotel już nie wystarcza — lokale wykończone w wysokim standardzie, z własną przestrzenią i pełną intymnością. Luksus nad polskim morzem osiąga tu nowy wymiar.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>inwestycja w nieruchomości w Łebie</div>
+        <p>Inwestycja w nieruchomość nad morzem w Łebie to jedna z najpopularniejszych form lokowania kapitału w Polsce — popyt na wynajem wakacyjny rośnie co roku. Apartamenty Łebska Osada to gotowa inwestycja z operatorem najmu i wysokim obłożeniem przez cały sezon.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>apartamenty na sprzedaż nad morzem</div>
+        <p>W ofercie Łebskiej Osady dostępne są apartamenty na sprzedaż w różnych metrażach — od 2-pokojowych po większe lokale familijne. Każdy gotowy do odbioru, w pełni wykończony, z możliwością natychmiastowego wejścia w najem.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>wakacje nad morzem Polska</div>
+        <p>Wakacje nad polskim morzem w Łebie to klasyczny wybór — szerokie plaże, wydmy i rześkie powietrze Bałtyku czekają tuż obok. Łebska Osada zapewnia komfort własnego apartamentu zamiast ciasnego pokoju hotelowego.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>apartamenty Słowiński Park Narodowy</div>
+        <p>Słowiński Park Narodowy z ruchomymi wydmami i jeziorem Łebsko zaczyna się dosłownie za bramą kompleksu Łebska Osada. To unikalna lokalizacja dla miłośników przyrody i aktywnego wypoczynku nad morzem.</p>
+      </div>
+
+      <div class="seo-item">
+        <div class="seo-phrase"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>apartamenty Pomorze</div>
+        <p>Województwo pomorskie to najpopularniejszy region wakacyjny w Polsce, a Łeba jest jego perłą nad morzem. Łebska Osada w Żarnowskiej to jeden z najbardziej prestiżowych adresów na całym Pomorzu.</p>
+      </div>
+
     </div>
   </div>
 </section>
