@@ -286,7 +286,13 @@
 
     /* APARTAMENTY */
     .apartamenty { background: var(--sand); padding-bottom: 0px; }
-    .apart-filter { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 24px 0 28px; }
+    .apart-stats { display: flex; gap: 12px; margin: 24px 0 0; flex-wrap: wrap; }
+    .apart-stat { flex: 1; min-width: 110px; background: #fff; border-radius: 16px; padding: 16px 14px; text-align: center; border: 1.5px solid var(--sand-dark); }
+    .apart-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; color: var(--green-deep); }
+    .apart-stat-num.gold { color: var(--gold); }
+    .apart-stat-num.sold { color: #5d8aa8; }
+    .apart-stat-label { font-size: .72rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+    .apart-filter { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 20px 0 28px; }
     .apart-filter::-webkit-scrollbar { display: none; }
     .filter-btn { flex-shrink: 0; padding: 8px 18px; border-radius: 40px; border: 1.5px solid var(--sand-dark); background: transparent; font-family: 'DM Sans', sans-serif; font-size: .8rem; color: var(--text-muted); cursor: pointer; transition: all .2s; white-space: nowrap; }
     .filter-btn.active { background: var(--green-deep); border-color: var(--green-deep); color: #fff; }
@@ -867,7 +873,21 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 <section class="apartamenty" id="listaapartamentow">
   <div class="section-label reveal">Oferta</div>
   <h2 class="section-title reveal reveal-delay-1">Dostępne<br><em>lokale</em></h2>
-  <p class="section-body reveal reveal-delay-2">5 lokali gotowych do odbioru. Każdy z antresolą i miejscem parkingowym.</p>
+  <p class="section-body reveal reveal-delay-2">Każdy lokal z antresolą i miejscem parkingowym.</p>
+  <div class="apart-stats reveal reveal-delay-2">
+    <div class="apart-stat">
+      <div class="apart-stat-num sold">45</div>
+      <div class="apart-stat-label">Sprzedanych</div>
+    </div>
+    <div class="apart-stat">
+      <div class="apart-stat-num gold">2</div>
+      <div class="apart-stat-label">Zarezerwowanych</div>
+    </div>
+    <div class="apart-stat">
+      <div class="apart-stat-num">5</div>
+      <div class="apart-stat-label">Dostępnych</div>
+    </div>
+  </div>
   <div class="apart-filter reveal">
     <button class="filter-btn active" data-rooms="all">Wszystkie</button>
     <button class="filter-btn" data-rooms="2">2 pokoje</button>
