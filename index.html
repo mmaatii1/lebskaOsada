@@ -286,12 +286,12 @@
 
     /* APARTAMENTY */
     .apartamenty { background: var(--sand); padding-bottom: 0px; }
-    .apart-stats { display: flex; gap: 12px; margin: 24px 0 0; flex-wrap: wrap; }
-    .apart-stat { flex: 1; min-width: 110px; background: #fff; border-radius: 16px; padding: 16px 14px; text-align: center; border: 1.5px solid var(--sand-dark); }
+    .apart-stats { display: flex; gap: 10px; margin: 24px 0 0; }
+    .apart-stat { flex: 1; min-width: 0; background: #fff; border-radius: 16px; padding: 16px 8px; text-align: center; border: 1.5px solid var(--sand-dark); }
     .apart-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; color: var(--green-deep); }
     .apart-stat-num.gold { color: var(--gold); }
     .apart-stat-num.sold { color: #5d8aa8; }
-    .apart-stat-label { font-size: .72rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+    .apart-stat-label { font-size: .65rem; color: var(--text-muted); margin-top: 5px; text-transform: uppercase; letter-spacing: .05em; line-height: 1.3; word-break: keep-all; hyphens: auto; }
     .apart-filter { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 20px 0 28px; }
     .apart-filter::-webkit-scrollbar { display: none; }
     .filter-btn { flex-shrink: 0; padding: 8px 18px; border-radius: 40px; border: 1.5px solid var(--sand-dark); background: transparent; font-family: 'DM Sans', sans-serif; font-size: .8rem; color: var(--text-muted); cursor: pointer; transition: all .2s; white-space: nowrap; }
@@ -1302,6 +1302,32 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   }, { threshold: 0, rootMargin: '0px' });
   reveals.forEach(r => io.observe(r));
   setTimeout(() => reveals.forEach(r => r.classList.add('visible')), 800);
+
+  // Animacja licznika statystyk
+  function animateCounter(el, target, duration) {
+    let start = 0, startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      const p = Math.min((ts - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  const statsEl = document.querySelector('.apart-stats');
+  if (statsEl) {
+    const statsIo = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        statsEl.querySelectorAll('.apart-stat-num').forEach(el => {
+          animateCounter(el, parseInt(el.textContent, 10), 1400);
+        });
+        statsIo.disconnect();
+      }
+    }, { threshold: 0.4 });
+    statsIo.observe(statsEl);
+  }
 
   // Filter
   document.querySelectorAll('.filter-btn').forEach(btn => {
