@@ -1430,6 +1430,20 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
       var btn = document.getElementById('ppSubmit');
       var msg = document.getElementById('ppMsg');
       var rodo = document.getElementById('pp-rodo');
+      var nameVal = document.getElementById('pp-name').value.trim();
+      var phoneVal = document.getElementById('pp-phone').value.trim();
+      if (!nameVal) {
+        msg.className = 'popup-msg error';
+        msg.textContent = 'Proszę podać imię i nazwisko.';
+        document.getElementById('pp-name').focus();
+        return;
+      }
+      if (!phoneVal) {
+        msg.className = 'popup-msg error';
+        msg.textContent = 'Proszę podać numer telefonu.';
+        document.getElementById('pp-phone').focus();
+        return;
+      }
       if (!rodo.checked) {
         msg.className = 'popup-msg error';
         msg.textContent = 'Proszę zaznaczyć zgodę na przetwarzanie danych.';
@@ -1437,10 +1451,10 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
       }
       if (typeof fbq !== 'undefined') fbq('track', 'Contact');
       btn.disabled = true; btn.textContent = 'Wysyłanie…'; msg.className = 'popup-msg';
-      fetch('https://formspree.io/f/xbdpzngb', {
+      fetch('kontakt.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name: document.getElementById('pp-name').value, phone: document.getElementById('pp-phone').value, message: 'Zapytanie z popupu — prośba o kontakt telefoniczny' })
+        body: JSON.stringify({ type: 'callback', name: nameVal, phone: phoneVal })
       }).then(function(r) { return r.json().then(function(d) { return { ok: r.ok, d: d }; }); })
       .then(function(res) {
         if (res.ok) {
@@ -1500,7 +1514,7 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 </script>
 
 <script>
-/* FORMULARZ — Formspree */
+/* FORMULARZ — kontakt.php */
 (function() {
   var form = document.getElementById('contactForm');
   if (!form) return;
@@ -1509,6 +1523,20 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     var btn = document.getElementById('cfSubmit');
     var msg = document.getElementById('cfMsg');
     var rodo = document.getElementById('cf-rodo');
+    var nameVal = document.getElementById('cf-name').value.trim();
+    var emailVal = document.getElementById('cf-email').value.trim();
+    if (!nameVal) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Proszę podać imię i nazwisko.';
+      document.getElementById('cf-name').focus();
+      return;
+    }
+    if (!emailVal) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Proszę podać adres e-mail.';
+      document.getElementById('cf-email').focus();
+      return;
+    }
     if (!rodo.checked) {
       msg.className = 'form-msg error';
       msg.textContent = 'Proszę zaznaczyć zgodę na przetwarzanie danych osobowych.';
@@ -1519,12 +1547,13 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     btn.textContent = 'Wysyłanie…';
     msg.className = 'form-msg';
     var data = {
-      name: document.getElementById('cf-name').value,
-      phone: document.getElementById('cf-phone').value,
-      email: document.getElementById('cf-email').value,
-      message: document.getElementById('cf-msg').value
+      type: 'contact',
+      name: nameVal,
+      phone: document.getElementById('cf-phone').value.trim(),
+      email: emailVal,
+      message: document.getElementById('cf-msg').value.trim()
     };
-    fetch('https://formspree.io/f/xbdpzngb', {
+    fetch('kontakt.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
