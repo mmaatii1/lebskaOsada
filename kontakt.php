@@ -94,4 +94,28 @@ if (!$sent) {
     exit;
 }
 
+$ch = curl_init('https://script.google.com/macros/s/AKfycbxfkvETeuarmUdlJ6JpUi2NdA9JZi15RDCcLnPOnUH4VkahUYePhIfb0tTbVKn44ck_lw/exec');                                            
+  curl_setopt_array($ch, [                                                                                                                                                        
+      CURLOPT_POST           => true,                                                                                                                                             
+      CURLOPT_POSTFIELDS     => json_encode([
+          'id'                => uniqid('web_', true),
+          'created_time'      => date('Y-m-d H:i:s'),
+          'form_name'         => $type,
+          'is_organic'        => true,
+          'platform'          => 'website',
+          'cel_zakupu'        => '',
+          'kiedy_kontakt'     => '',
+          'termin_prezentacji'=> '',
+          'full_name'         => $name,
+          'phone_number'      => $phone,
+          'email'             => ($email !== false) ? $email : '',
+      ]),                                                                                                                                                                         
+      CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_TIMEOUT        => 5,                                                                                                                                                
+      CURLOPT_FOLLOWLOCATION => true,
+  ]);                                                                                                                                                                             
+  curl_exec($ch);                                                 
+  curl_close($ch);
+
 echo json_encode(['ok' => true]);
