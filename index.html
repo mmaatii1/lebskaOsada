@@ -738,48 +738,28 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 <body>
 
 <!-- POPUP OFERTY -->
-<div class="popup-overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-  <div class="popup-box">
-    <button class="popup-close" id="popupClose" aria-label="Zamknij">&#x2715;</button>
+<div id="popupOverlay" class="popup-overlay">
+
+  <div class="popup-content" style="color: #ffffff;">
+    <button id="popupClose" class="popup-close" aria-label="Zamknij" style="color: #ffffff;">&times;</button>
+    
+    <!-- Nagłówek i treść baneru -->
     <div class="popup-header">
-      <div class="popup-eyebrow"><svg viewBox="0 0 24 24" style="width:1em;height:1em;fill:#fff;display:inline-block;vertical-align:middle"><path d="M12 2l2.4 7.3H22l-6.2 4.5 2.4 7.2L12 17.3l-6.2 3.7 2.4-7.2L2 9.3h7.6z"/></svg> Aktualna oferta</div>
-      <h3 id="popupTitle">Apartamenty nad morzem<br>już od <em>9 000 zł/m²</em></h3>
-      <div class="popup-perks">
-        <div class="popup-perk"><svg viewBox="0 0 24 24"><path d="M16 4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm3 16.5c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2zm-1-6.5L15.5 8H14l-3 4.5L9 10 6.5 14H19z"/></svg><span><strong>Basen</strong> z podgrzewaną wodą bez dopłat</span></div>
-        <div class="popup-perk"><svg viewBox="0 0 24 24"><path d="M12 2H6v20h4v-6h2c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 8H10V6h2c1.1 0 2 .9 2 2s-.9 2-2 2z"/></svg><span><strong>Miejsce parkingowe</strong> — wliczone w cenę</span></div>
-        <div class="popup-perk"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Stan deweloperski</strong> — gotowe do odbioru, z gładziami</span></div>
-      </div>
+      <h2 id="popupTitle" style="color: #ffffff;">Wszystkie apartamenty zostały sprzedane!</h2>
+      <p style="color: #ffffff;">
+        Szukasz nieruchomości? Od tego samego inwestora polecamy naszą nową inwestycję: 
+        <strong style="color: #ffffff;">domki z prywatnymi działkami na Kaszubach!</strong>
+      </p>
+      <p class="popup-subtext" style="color: #ffffff;">Przejdź na naszą nową stronę, aby poznać szczegóły oferty.</p>
     </div>
-    <div class="popup-body">
-      <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:18px;line-height:1.55;">Zostaw numer — oddzwonimy i odpowiemy na wszystkie pytania.</p>
-      <form id="popupForm" novalidate>
-        <div class="form-grid">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="pp-name">Imię i nazwisko *</label>
-              <input type="text" id="pp-name" name="name" placeholder="Jan Kowalski" required>
-            </div>
-            <div class="form-group">
-              <label for="pp-phone">Telefon *</label>
-              <input type="tel" id="pp-phone" name="phone" placeholder="+48 600 000 000" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="pp-message">Wiadomość <span style="font-weight:400;opacity:.55">(opcjonalnie)</span></label>
-            <textarea id="pp-message" name="message" placeholder="Mam pytanie dotyczące…"></textarea>
-          </div>
-          <label class="form-rodo">
-            <input type="checkbox" id="pp-rodo" name="rodo" required>
-            Wyrażam zgodę na przetwarzanie moich danych osobowych przez Łebska sp. z o.o. w celu kontaktu w sprawie oferty, zgodnie z art. 6 ust. 1 lit. a RODO. *
-          </label>
-          <button type="submit" class="popup-submit" id="ppSubmit">Chcę, żebyście zadzwonili</button>
-          <div class="popup-msg" id="ppMsg"></div>
-          <button type="button" class="popup-dismiss" id="ppDismiss">Chcę przejrzeć ofertę →</button>
-        </div>
-      </form>
-    </div>
+
+    <!-- Przycisk przekierowujący na nową stronę -->
+    <a href="https://kaszubskaosada.com.pl/" target="_blank" rel="noopener noreferrer" class="btn-primary popup-redirect-btn" style="color: #ffffff;">
+      Zobacz domki na Kaszubach
+    </a>
   </div>
 </div>
+
 
 
 <nav id="mainNav">
@@ -787,8 +767,10 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     <img src="wpAranzacjeOkolice/cropped-logo_osada_white.webp" alt="Łebska Osada" loading="eager" width="66" height="44">
   </a>
   <div class="nav-actions">
-    <a class="nav-cta-ghost" href="#formularz">Zapytaj</a>
-    <a class="nav-cta" href="#listaapartamentow">Sprawdź ofertę</a>
+    <a href="https://kaszubskaosada.com.pl/" target="_blank" rel="noopener noreferrer" class="btn-primary popup-redirect-btn" style="color: #ffffff;">
+      Zobacz domki na kaszubach
+    </a>
+    <a class="nav-cta" href="#listaapartamentow">Wszystkie apartamenty sprzedane</a>
   </div>
 </nav>
 
@@ -798,13 +780,14 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <div class="hero-bg-2"></div>
   <div class="hero-bg-3"></div>
   <div class="hero-content">
-    <div class="hero-badge"><svg viewBox="0 0 24 24"><path d="M3 12c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2zm0 4c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2z"/></svg>Żarnowska przy Łebie</div>
-    <h1>Gotowe mieszkania<br>na <em>nadmorskim</em><br>osiedlu</h1>
-    <h2 class="hero-seo">Apartamenty na sprzedaż w Łebie</h2>
-    <p class="hero-sub">Lokale już od <strong>9 000 zł/m²</strong> z 8% VAT</p>
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M3 12c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2zm0 4c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1v2c-1.5 0-2.5-1-4-1s-2.5 1-4 1-2.5-1-4-1-2.5 1-4 1v-2z"/></svg>Żarnowska przy Łebie
+    </div>
+    <h1>Wszystkie apartamenty<br>zostały <em>sprzedane!</em></h1>
+    <h2 class="hero-seo">Sprawdź naszą nową inwestycję na Kaszubach</h2>
+    <p class="hero-sub">Zobacz domki z prywatnymi działkami od tego samego inwestora</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#listaapartamentow">Dostępne apartamenty</a>
-      <a class="btn-secondary" href="#lokalizacja">Lokalizacja</a>
+      <a class="btn-primary" href="https://kaszubskaosada.com.pl/" target="_blank" rel="noopener noreferrer">Zobacz domki na Kaszubach</a>
     </div>
   </div>
   <div class="scroll-hint"><span>Odkryj</span><div class="scroll-hint-line"></div></div>
@@ -881,19 +864,19 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 <!-- APARTAMENTY -->
 <section class="apartamenty" id="listaapartamentow">
   <div class="section-label reveal">Oferta</div>
-  <h2 class="section-title reveal reveal-delay-1">Dostępne<br><em>lokale</em></h2>
+  <h2 class="section-title reveal reveal-delay-1">Wszystkie<br><em>lokale</em> sprzedane!</h2>
   <p class="section-body reveal reveal-delay-2">Każdy lokal z antresolą i miejscem parkingowym.</p>
   <div class="apart-stats reveal reveal-delay-2">
     <div class="apart-stat">
-      <div class="apart-stat-num sold">44</div>
+      <div class="apart-stat-num sold">50</div>
       <div class="apart-stat-label">Sprzedanych</div>
     </div>
     <div class="apart-stat">
-      <div class="apart-stat-num gold">5</div>
+      <div class="apart-stat-num gold">0</div>
       <div class="apart-stat-label">Zarezerwowanych</div>
     </div>
     <div class="apart-stat">
-      <div class="apart-stat-num">1</div>
+      <div class="apart-stat-num">0</div>
       <div class="apart-stat-label">Dostępnych</div>
     </div>
   </div>
@@ -901,45 +884,6 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
     <button class="filter-btn active" data-rooms="all">Wszystkie</button>
     <button class="filter-btn" data-rooms="2">2 pokoje</button>
     <button class="filter-btn" data-rooms="3">3 pokoje</button>
-  </div>
-  <div class="apart-grid" id="apartGrid">
-
-    <div class="apart-card reserved reveal" data-rooms="3" data-price="489890">
-      <div class="apart-top"><div class="apart-id">10M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
-      <div class="apart-specs"><div class="spec-item"><div class="spec-val">52,35 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">11,83 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/10M6.pdf" target="_blank">PDF karta</a></div>
-    </div>
-
-    <div class="apart-card reserved reveal reveal-delay-1" data-rooms="3" data-price="489890">
-      <div class="apart-top"><div class="apart-id">8M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
-      <div class="apart-specs"><div class="spec-item"><div class="spec-val">53,51 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">12,92 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/8M6.pdf" target="_blank">PDF karta</a></div>
-    </div>
-
-    <div class="apart-card reserved reveal reveal-delay-2" data-rooms="3" data-price="489890">
-      <div class="apart-top"><div class="apart-id">7M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
-      <div class="apart-specs"><div class="spec-item"><div class="spec-val">53,52 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">12,70 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/7M6.pdf" target="_blank">PDF karta</a></div>
-    </div>
-
-    <div class="apart-card reserved reveal reveal-delay-3" data-rooms="3" data-price="489890">
-      <div class="apart-top"><div class="apart-id">4M6</div><div class="apart-price">489 890 zł <span>brutto</span></div></div>
-      <div class="apart-specs"><div class="spec-item"><div class="spec-val">53,53 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">12,66 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">3</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/4M6-1.pdf" target="_blank">PDF karta</a></div>
-    </div>
-
-    <div class="apart-card reveal reveal-delay-2" data-rooms="2" data-price="469900">
-      <div class="apart-top"><div class="apart-id">7M10</div><div class="apart-price">469 900 zł <span>brutto</span></div></div>
-      <div class="apart-specs"><div class="spec-item"><div class="spec-val">52,71 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">17,70 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">2</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/7M10.pdf" target="_blank">PDF karta</a></div>
-    </div>
-
-    <div class="apart-card reserved reveal reveal-delay-3" data-rooms="2" data-price="469900">
-      <div class="apart-top"><div class="apart-id">4M10</div><div class="apart-price">469 900 zł <span>brutto</span></div></div>
-      <div class="apart-specs"><div class="spec-item"><div class="spec-val">52,74 m²</div><div class="spec-key">Powierzchnia</div></div><div class="spec-item"><div class="spec-val">17,84 m²</div><div class="spec-key">Antresola</div></div><div class="spec-item"><div class="spec-val">2</div><div class="spec-key">Pokoje</div></div></div>
-      <div class="apart-foot"><span class="floor-badge"><svg class="icon-inline" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> I piętro</span><a class="apart-pdf" href="karty-lokalow/4M10-1.pdf" target="_blank">PDF karta</a></div>
-    </div>
-
   </div>
   <div class="section-divider"><span></span></div>
 </section>
@@ -1086,42 +1030,6 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
 </section>
 
 
-<!-- FORMULARZ KONTAKTOWY -->
-<section class="formularz" id="formularz">
-  <div class="section-label reveal">Formularz kontaktowy</div>
-  <h2 class="section-title reveal reveal-delay-1">Zapytaj<br>o <em>ofertę</em></h2>
-  <p class="section-body reveal reveal-delay-2">Wypełnij formularz — odpiszemy lub oddzwonimy w ciągu jednego dnia roboczego.</p>
-  <div class="form-wrap reveal reveal-delay-3">
-    <form id="contactForm" novalidate>
-      <div class="form-grid">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cf-name">Imię i nazwisko *</label>
-            <input type="text" id="cf-name" name="name" placeholder="Jan Kowalski" required>
-          </div>
-          <div class="form-group">
-            <label for="cf-phone">Telefon *</label>
-            <input type="tel" id="cf-phone" name="phone" placeholder="+48 600 000 000" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="cf-email">Adres e-mail *</label>
-          <input type="email" id="cf-email" name="email" placeholder="jan@przyklad.pl" required>
-        </div>
-        <div class="form-group">
-          <label for="cf-msg">Pytania / wiadomość</label>
-          <textarea id="cf-msg" name="message" placeholder="Np. Interesuje mnie apartament na parterze, proszę o informacje o dostępności i finansowaniu..."></textarea>
-        </div>
-        <label class="form-rodo">
-          <input type="checkbox" id="cf-rodo" name="rodo" required>
-          Wyrażam zgodę na przetwarzanie moich danych osobowych przez Łebska sp. z o.o. z siedzibą w Gdyni w celu udzielenia odpowiedzi na moje zapytanie, zgodnie z art. 6 ust. 1 lit. a RODO. Zgoda jest dobrowolna i może być cofnięta w każdym czasie. *
-        </label>
-        <button type="submit" class="form-btn" id="cfSubmit">Wyślij wiadomość</button>
-        <div class="form-msg" id="cfMsg"></div>
-      </div>
-    </form>
-  </div>
-</section>
 
 <!-- KONTAKT -->
 <section class="kontakt" id="kontakt">
@@ -1130,7 +1038,7 @@ src="https://www.facebook.com/tr?id=2030720391135450&ev=PageView&noscript=1"
   <p class="section-body reveal reveal-delay-2">Nasz zespół odpowie na każde pytanie — o lokale, finansowanie, terminy odbioru i wszystko inne.</p>
   <div class="contact-cards reveal">
     <div class="contact-card" data-href="mailto:sprzedaz@lebskaosada.pl"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><div class="contact-label">E-mail sprzedaż</div><div class="contact-val">sprzedaz@lebskaosada.pl</div></div></div>
-    <div class="contact-card" data-href="tel:+48792503213"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg></div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 792 503 213</div><div class="contact-name">Patrycja Leonowicz</div></div></div>
+    <div class="contact-card" data-href="tel:+48792503213"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg></div><div><div class="contact-label">Telefon sprzedaż</div><div class="contact-val">+48 795 343 455</div><div class="contact-name">Patrycja Leonowicz</div></div></div>
     <div class="contact-card" data-href="tel:+48500299775"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5S10.67 18 11.5 18s1.5.67 1.5 1.5S12.33 22 11.5 22zm4.5-4H7V4h9v14z"/></svg></div><div><div class="contact-label">Tel. firmowy</div><div class="contact-val">+48 500 299 775</div><div class="contact-name">Jarosław Szreder</div></div></div>
     <div class="contact-card"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div><div class="contact-label">Lokalizacja</div><div class="contact-val">Łeba, woj. pomorskie</div></div></div>
     <div class="contact-card" data-href="https://www.facebook.com/osiedlelebskaosada" data-target="_blank"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#c09a52"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><div><div class="contact-label">Facebook</div><div class="contact-val">Osiedle Łebska Osada</div></div></div>
